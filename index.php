@@ -161,7 +161,6 @@ $ingedientes ="";
                 <p class="text-muted">Idea generada en un pequeño cubículo de la universidad de guadalajara
                      con la finalidad  de poder cocinar sin saber hacerlo y al mismo modo
                       crear recetas saludables con elementos que tenemos a la mano.</p>
-
               </div>
               <div class="col-6   text-center">
                 <img style="height: 65%;" class="img-fluid mb-2" src="/letmecook/src/img/cook_logo.png" alt="chef">
