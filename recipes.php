@@ -87,7 +87,9 @@
     <div class="text-center">
         <div class="d-flex  justify-content-center">
             <h1 class="pr-3">Ingredientes Seleccionados: </h1>
-            <h1 id="numbIngredients" class="text-danger">3</h1>
+            <div>
+                <h1  class="text-danger " id="numbIngredients" >3</h1>
+            </div>
         </div>
         <p id="ingredients">(Masa de hojaldre vegana, Margarina vegetal, Edulcorante)</p>
     </div>
@@ -98,10 +100,9 @@
     <div class="container pt-5">
         <div class="row pb-4">
             <div class="d-flex col-12">
-                <h2 class="pr-2">Categoría: </h2>
-                <p class="text-success font-weight-bold pt-3" >Vegana
-                <p class="text-success font-weight-bold pt-3">(1)</p>
-                </p>
+                <h2 class="pr-2">Categoría:  </h2>
+                    <p class="text-success font-weight-bold pt-3" >Vegana</p>
+                    <p class="text-success font-weight-bold pt-3">(1)</p>        
             </div>
             <div class="col-6 shadow p-2">
                 <a href="/letmecook/preparation.php">

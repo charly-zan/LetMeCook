@@ -24,3 +24,38 @@ $(".kardex").click(function () {
     }
   });
 });
+
+/*$hola.= '<tr>';
+							$hola.= '<td class="uk-text-nowrap">';
+								$hola.= '<span class=\'uk-hidden@m uk-text-muted\'>QR : &nbsp;</span>';
+								$hola .= substr($rowCONSULTA['qr'], 0 , 15);
+							$hola .= '</td>';
+							$hola.= '<td class="uk-text-nowrap">';
+								$hola.= '<span class=\'uk-hidden@m uk-text-muted\'>NOMBRE : &nbsp;</span>';
+								$hola .= substr($rowCONSULTA['productoname'], 0 , 20);
+							$hola .= '</td>';
+							$hola.= '<td class="uk-text-nowrap">';
+								$hola.= '<span class=\'uk-hidden@m uk-text-muted\'>SKU : &nbsp;</span>';
+								$hola .= $rowCONSULTA['productosku'];
+							$hola .= '</td>';
+							$hola.= '<td class="uk-text-nowrap">';
+								$hola.= '<span class=\'uk-hidden@m uk-text-muted\'>LOTE : &nbsp;</span>';
+								$hola.= $rowCONSULTA['certificado'];
+							$hola .= '</td>';
+							$hola.= '<td class="uk-text-nowrap">';
+								$hola.= '<span class=\'uk-hidden@m uk-text-muted\'>PRESENTACIÓN : &nbsp;</span>';
+								$hola.= $rowCONSULTA['sizetxt'];
+							$hola .= '</td>';
+							$hola.= '<td class="uk-text-nowrap">';
+								$hola.= '<a href="javascript:eliminar('.$rowCONSULTA['id'].','.$almacen.')" data-id='.$rowCONSULTA['id'].' class=\'uk-icon-button uk-button-danger\' uk-tooltip=\'Eliminar \'tabindex=\'1\'uk-icon=\'icon:close\' ></a>';
+							$hola .= '</td>';
+						$hola .= '</tr>';
+						
+						
+
+						$CONSULTA = $CONEXION -> query()
+						if($CONSULTA->num_rows == 0){ else{
+							
+						}
+						while($rowCONSULTA = $CONSULTA -> fetch_assoc()){
+*/

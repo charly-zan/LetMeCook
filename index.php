@@ -77,7 +77,7 @@ $ingedientes ="";
       <!--Second nav-->
       <ul class="nav justify-content-center">
         <li class="nav-item">
-          <p class="font-weight-bold">Qué se te antoja preparar?</p>
+          <p class="font-weight-bold">¿Qué se te antoja preparar?</p>
         </li>
         <li class="nav-item">
           <input class="ml-2" type="text" placeholder="Ingresa el platillo">
@@ -89,7 +89,7 @@ $ingedientes ="";
       <!--End second var-->
       <hr>
       <!--Container -->
-      <div class="container  mt-4" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+      <div class="container  mt-4" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 100; repeat: true">
           <div class="row ">
             <div class="col-6 uk-card">
                 <p class="text-uppercase uk-card">Un poco de <br> nosotros....<img style="height: 25px;" class="img-fluid" src="/letmecook/src/img/heart.svg"></p>
@@ -211,7 +211,7 @@ $ingedientes ="";
           <div class="text-center align-self-center  m-4 p-4">
               <div class="row">
                   <div class="col-12">
-                      <h2 class="font-weight-bold">Qué se te antoja preparar?</h2>
+                      <h2 class="font-weight-bold p-lg-4">¿Qué ingredientes tienes a la mano?</h2>
                       <p class="text-muted">Ingresa los ingredientes que tienes y te recomendaremos recetas:</p>
                       
                       <form>
