@@ -1,0 +1,33 @@
+
+//USO DEL AJAXX
+$(".kardex").click(function(){
+			var id = $(this).attr("data-id");
+			var almacen = $(this).attr("data-almacen");
+			
+			$("#app").html("");
+			$("#prod").html("");
+			$.ajax({
+				method: "POST",
+				url: "modulos/'.$seccion.'/acciones.php",
+				data: { 
+					id: id,
+					almacen: almacen,
+					damehistorialkardexpedidos: 1
+				}
+			})
+			.done(function( response ) {
+				console.log( response );
+				datos = JSON.parse(response);
+				UIkit.notification.closeAll();
+			
+				if(datos.estatus==1){
+					$("#app").html(datos.xtras);
+					$("#prod").html(datos.prodsel);
+				}
+	
+			});
+	
+		});
+
+
+        
