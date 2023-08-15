@@ -145,7 +145,6 @@ $ingedientes ="";
                  <h4 class="font-weight-bold">Delicioso</h4>
                  <p class="text-muted">Recetas Proporcionadas por <br> Chefs y personas expertas</p>       
             </div>
-
         </div>
       </div>
       <!--End container 2-->
