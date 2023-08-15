@@ -36,7 +36,7 @@ $ingedientes ="";
                     <a class="nav-link" href="#">Food</a>
                 </li>
                 <li class="nav-item my-auto">
-                    <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline" href="/index.html">Let's Food!</a>
+                    <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline" href="/letmecook/index.php">Let's Food!</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Food</a> 
@@ -58,15 +58,15 @@ $ingedientes ="";
     <div class="jumbotron jumbotron-fluid mt-5">
         <div class="container">
             <div class="row">
-                <div class="col-6">
+                <div class="col-6 " >
                     <h1 class="display-4 font-weight-bold">Let´s me cook <br>for You !</h1>
                     <p class="lead">Crea impresionantes Recetas de manera Fácil</p>
                     <hr>
                     <p>Crea recetas en cuestión de minutos, tan solo ingresa la cantidad de ingredientes que tienes y te recomendaremos recetas</p>
                     <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
                 </div>
-                <div class="col-6">
-                    <img class="img-fluid rounded-circle" style="height: 80%;" src="/letmecook/src/img/cook.png" alt="Chef_index">
+                <div class="col-6 uk-overflow-hidden">
+                    <img class="img-fluid rounded-circle k-animation-reverse uk-transform-origin-top-right" uk-scrollspy="cls: uk-animation-kenburns; repeat: true" style="height: 80%;" src="/letmecook/src/img/cook.png" alt="Chef_index">
                 </div>
             </div>
         </div>
@@ -83,36 +83,36 @@ $ingedientes ="";
           <input class="ml-2" type="text" placeholder="Ingresa el platillo">
         </li>
         <li class="nav-item">
-          <button type="button" class="align-content-center ml-3 btn btn-dark btn-sm" onclick="location.href='/letmecook/recipes.html';"><strong>BUSCAR </strong> <img style="height: 35px;" class="img-fluid" src="/letmecook/src/img/glass.svg" alt="lupa"></button>
+          <button type="button" class="align-content-center ml-3 btn btn-dark btn-sm" onclick="location.href='/letmecook/recipes.php';"><strong>BUSCAR </strong> <img style="height: 35px;" class="img-fluid" src="/letmecook/src/img/glass.svg" alt="lupa"></button>
         </li>
       </ul>
       <!--End second var-->
       <hr>
       <!--Container -->
-      <div class="container  mt-4">
-          <div class="row">
-            <div class="col-6">
-                <p class="text-uppercase">Un poco de <br> nosotros....<img style="height: 25px;" class="img-fluid" src="/letmecook/src/img/heart.svg"></p>
-                <h2 class="display-4">Quién es Let Me Cook?</h2>
+      <div class="container  mt-4" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 500; repeat: true">
+          <div class="row ">
+            <div class="col-6 uk-card">
+                <p class="text-uppercase uk-card">Un poco de <br> nosotros....<img style="height: 25px;" class="img-fluid" src="/letmecook/src/img/heart.svg"></p>
+                <h2 class="display-4 uk-card">Quién es Let Me Cook?</h2>
                 <br>
-                <p class=" text-muted">Let me cook es una plataforma de creación de alimentos saludables,
+                <p class=" text-muted uk-card">Let me cook es una plataforma de creación de alimentos saludables,
                      no saludables e incluso veganos , con tan solo ingresar la cantidad
                       de ingredientes que tienes nuestra plataforma te recomendará el tipo
                        de alimento que se puede preparar con los mismos.</p>
                     <br>
-                <p  class=" text-muted">La preparación será sencilla con la sinplificación de pasos que tiene
+                <p  class=" text-muted uk-card">La preparación será sencilla con la sinplificación de pasos que tiene
                      nuestro recetario, cuidamos tu economía, salud y bienestar</p>
             </div>
-            <div class=" col-6">
-                <h2 class="display-4">Porqué usar nuestra App?</h2>
+            <div class=" col-6 uk-card">
+                <h2 class="display-4 uk-card">Porqué usar nuestra App?</h2>
                 <br>
-                <p  class=" text-muted">El uso de nuestra plataforma será de gran utilidad para cualquier persona
+                <p  class=" text-muted uk-card">El uso de nuestra plataforma será de gran utilidad para cualquier persona
                      que quiere cocinar x receta o que quiere cocinar algo con los mínimos de
                       ingredientes disponibles en su casa.</p>
                       <br>
-                <p  class=" text-muted">Con Let Me Cook cocinar será como ponerte los zapatos, será sencillo y divertido.</p>
+                <p  class=" text-muted uk-card">Con Let Me Cook cocinar será como ponerte los zapatos, será sencillo y divertido.</p>
                 <br>
-                <p class="font-weight-bold">¡Qué esperas!</p>
+                <p class="font-weight-bold uk-card">¡Qué esperas!</p>
             </div>
           </div>
 
@@ -122,25 +122,25 @@ $ingedientes ="";
       <hr>
 
       <!--Container 2-->
-      <div class="container text-center   align-items-center">
+      <div class="container text-center   align-items-center" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
         <div class="row">
             <div class="col-12">
                 <h3 class="font-weight-bold">Beneficios</h3>
                 <p class="text-muted">Let Me Cook ofrece un sin fin de beneficios para nuestros <br> visitantes: </p>
             </div>
         </div>
-        <div class="row">
-            <div class="col-4">
-                <img class="img-fluid" style="height: 35px;" src="/letmecook/src/img/pancakes.svg" alt="pancakes">
+        <div class="row uk-animation-toggle " tabindex="0">
+            <div class="col-4 uk-animation-slide-left">
+                <img class="img-fluid" style="height: 40px;" src="/letmecook/src/img/pancakes.svg" alt="pancakes">
                  <h4 class="font-weight-bold">Sencillo</h4>
                  <p class="text-muted">Con pasos son prácticos de <br> realizar</p>
             </div>
-            <div class="col-4">
+            <div class="col-4  uk-animation-shake uk-animation-reverse" >
                 <img class="img-fluid" style="height: 35px;" src="/letmecook/src/img/donut.svg" alt="donut">
                  <h4 class="font-weight-bold">Rápido</h4>
                  <p class="text-muted">Sin conplicaciones y <br> instrucciones simplificadas</p>        
             </div>
-            <div class="col-4">
+            <div class="col-4 uk-animation-slide-right">
                 <img class="img-fluid" style="height: 35px;" src="/letmecook/src/img/salad.svg" alt="salad">
                  <h4 class="font-weight-bold">Delicioso</h4>
                  <p class="text-muted">Recetas Proporcionadas por <br> Chefs y personas expertas</p>       
@@ -256,6 +256,8 @@ $ingedientes ="";
     //en jquery
     //id --> #
     //clase --> .
+
+    //busca las recetas en la base de datos segun los ingredientes
     $("#buscar").click(function(){
         var ingredientes = $("#ingredientes").val();
 			
@@ -273,9 +275,8 @@ $ingedientes ="";
                 UIkit.notification.closeAll();
             
                 if(datos.estatus==1){
-                    console.log("holamundo");
                     UIkit.notification(datos.msj);
-                   // console.log(datos.ingredientes);
+                    console.log(datos.ingredientes);
                 }
 
             });
