@@ -1,5 +1,7 @@
 <?php
-
+$ing=(isset($_GET['ing']))?$_GET['ing']:0;
+#link other page
+#<li><a href="index.php?rand='.rand(1,99999).'&seccion='.$seccion.'&subseccion=controlpedidos&id='.$id.'" class="color-red">Control De Pedidos '.$rowCONSULTA10['nombre'].'</a></li>
 ?>
 
 <!DOCTYPE html>
