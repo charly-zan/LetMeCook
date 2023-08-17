@@ -1,5 +1,5 @@
 <?php
-$ing=(isset($_GET['ing']))?$_GET['ing']:0;
+$ing=(isset($_GET['ing']))?$_GET['ing']:"";
 #link other page
 #<li><a href="index.php?rand='.rand(1,99999).'&seccion='.$seccion.'&subseccion=controlpedidos&id='.$id.'" class="color-red">Control De Pedidos '.$rowCONSULTA10['nombre'].'</a></li>
 ?>
@@ -69,8 +69,34 @@ $ing=(isset($_GET['ing']))?$_GET['ing']:0;
     <!--End Navbar-->
 </header>
 
+
 <body>
-    <!--Container 1-->
+    
+<?php 
+if($ing != ""){
+    include './src/php/conn.php';
+
+    // Ingredientes proporcionados
+$ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
+
+$sth = $conn->query("SELECT r.name, COUNT(*) AS num_ingredientes
+    FROM recipe r
+    JOIN recipe_ingredientes ri ON r.id = ri.id_recipe
+    JOIN ingredients i ON ri.id_ingredient = i.id
+    WHERE i.name IN ('" . implode("', '", $ingredientesProporcionados) . "')
+    GROUP BY r.id");
+
+    if($sth ->rowCount() > 0){
+        while($rows = $sth->fetch(PDO::FETCH_ASSOC)){
+            echo $rows['name'];
+            echo '</br>';
+        }
+        
+    }else{
+        echo 'Image not found...';
+    }
+
+    echo'<!--Container 1-->
     <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
         <div class="row  shadow-lg rounded">
             <div class="col-6 text-center pt-5">
@@ -83,7 +109,40 @@ $ing=(isset($_GET['ing']))?$_GET['ing']:0;
 
         </div>
     </div>
-    <!--End Container 1-->
+    <!--End Container 1-->';
+}else{
+ echo '    <!--Container 1-->
+    <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
+        <div class="row  shadow-lg rounded">
+            <div class="col-6 text-center pt-5">
+                <h1 class="font-weight-bold"  id="textTitle"> No se encontraron recetas :(!
+                </h1>
+            </div>
+            <div class="offset-2 col-4">
+                <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
+            </div>
+
+        </div>
+    </div>
+    <!--End Container 1-->';
+}
+
+?>
+
+    <!--Container 1 
+    <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
+        <div class="row  shadow-lg rounded">
+            <div class="col-6 text-center pt-5">
+                <h1 class="font-weight-bold"  id="textTitle"> Se encontraron " 6 " <br> Recetas con esos ingredientes!!
+                </h1>
+            </div>
+            <div class="offset-2 col-4">
+                <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
+            </div>
+
+        </div>
+    </div>
+    End Container 1-->
 
     <!--Container 2-->
     <div class="text-center">

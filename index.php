@@ -275,6 +275,7 @@ $ingedientes ="";
                 if(datos.estatus==1){
                     UIkit.notification(datos.msj);
                     console.log(datos.ingredientes);
+                    location.href="/letmecook/recipes.php?ing="+ingredientes;
                 }
 
             });
