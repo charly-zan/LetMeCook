@@ -5,15 +5,20 @@ if(isset($_POST["submit"])){
         $image = $_FILES['image']['tmp_name'];
         $imgContent = addslashes(file_get_contents($image));
         $id = $_POST["id"];
+        $image_mime = getimagesize($image);
+        #var_dump($image_mime);
+        
+        $image_mime = $image_mime['mime'];
         /*
-         * Insert image data into database
+         * IREVISAR ESTA PARTE
+         *
          */
 
         //DB details+
         include '../php/conn.php';
         
         //Insert image content into database
-        $insert = $conn->query("Update food  set img ='$imgContent' where id = '$id'");
+        $insert = $conn->query("Update recipe  set img ='$imgContent', imgtype = '$image_mime' WHERE id = '$id' ");
         if($insert){
             echo "File uploaded successfully.";
         }else{

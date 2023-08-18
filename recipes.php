@@ -118,6 +118,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img, COUNT(*) AS num_ingredient
             $tipo = $rows['type'];
             $imagen = $rows['img'];
             $id = $rows['id'];
+            
         #probAR  este segmento de codigo
             echo'<div class="container pt-5">
             <div class="row pb-4">
