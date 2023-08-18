@@ -79,7 +79,7 @@ if($ing != ""){
     // Ingredientes proporcionados
 $ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
 
-$sth = $conn->query("SELECT r.id,r.name,r.type,r.img, COUNT(*) AS num_ingredientes
+$sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_ingredientes
     FROM recipe r
     JOIN recipe_ingredients ri ON r.id = ri.id_recipe
     JOIN ingredients i ON ri.id_ingredient = i.id
@@ -118,6 +118,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img, COUNT(*) AS num_ingredient
             $tipo = $rows['type'];
             $imagen = $rows['img'];
             $id = $rows['id'];
+            $imagentype = $rows['imgtype'];
             
         #probAR  este segmento de codigo
             echo'<div class="container pt-5">
@@ -144,7 +145,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img, COUNT(*) AS num_ingredient
                                 </div>
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid  pt-3" src="data:image/jpg;base64,'.base64_encode($imagen).'" alt="">
+                                <img class="img-fluid  pt-3" src="data:'.$imagentype.';base64,'.base64_encode($imagen).'" alt="">
                             </div>
                         </div>
                     </a>
