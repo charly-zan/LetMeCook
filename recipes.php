@@ -79,7 +79,7 @@ if($ing != ""){
     // Ingredientes proporcionados
 $ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
 
-$sth = $conn->query("SELECT r.name, COUNT(*) AS num_ingredientes
+$sth = $conn->query("SELECT r.id,r.name,r.type,r.img COUNT(*) AS num_ingredientes
     FROM recipe r
     JOIN recipe_ingredients ri ON r.id = ri.id_recipe
     JOIN ingredients i ON ri.id_ingredient = i.id
@@ -87,29 +87,73 @@ $sth = $conn->query("SELECT r.name, COUNT(*) AS num_ingredientes
     GROUP BY r.id");
 
     if($sth ->rowCount() > 0){
-        while($rows = $sth->fetch(PDO::FETCH_ASSOC)){
-            echo $rows['name'];
-            echo '</br>';
-        }
-        
-    }else{
-        echo 'Image not found...';
-    }
-
-    echo'<!--Container 1-->
+        echo'<!--Container 1-->
     <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
         <div class="row  shadow-lg rounded">
             <div class="col-6 text-center pt-5">
-                <h1 class="font-weight-bold"  id="textTitle"> Se encontraron " 6 " <br> Recetas con esos ingredientes!!
+                <h1 class="font-weight-bold"  id="textTitle"> Se encontraron "'.$sth ->rowCount().' " <br> Recetas con esos ingredientes!!
                 </h1>
-            </div>
-            <div class="offset-2 col-4">
+                </div>
+                <div class="offset-2 col-4">
                 <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
-            </div>
-
-        </div>
+                </div>
+                
+                </div>
+                </div>
+    <!--End Container 1-->
+    <!--Container 2-->
+    <div class="text-center">
+    <div class="d-flex  justify-content-center">
+    <h1 class="pr-3">Ingredientes Seleccionados: </h1>
+    <div>
+    <h1  class="text-danger " id="numbIngredients" >'.sizeof($ingredientesProporcionados).'</h1>
     </div>
-    <!--End Container 1-->';
+    </div>';
+    foreach($ingredientesProporcionados as $ingr=>$ingri )print($ingri.',').'
+        
+        </div>
+        <!--End Container 2-->';
+        while($rows = $sth->fetch(PDO::FETCH_ASSOC)){
+            $nombre = $rows['name'];
+            $tipo = $rows['type'];
+            $imagen = $rows['img'];
+            $id = $rows['id'];
+        #probAR  este segmento de codigo
+            echo'<div class="container pt-5">
+            <div class="row pb-4">
+                <div class="d-flex col-12">
+                    <h2 class="pr-2">Categoría:  </h2>
+                        <p class="text-success font-weight-bold pt-3" >'.$tipo.'</p>
+                        <p class="text-success font-weight-bold pt-3">(1)</p>        
+                </div>
+                <div class="col-6 shadow p-2">
+                    <a href="/letmecook/preparation.php">
+                        <div class="row p-3">
+                            <div class="col-8">
+                                <h2 class="font-italic">'.$nombre.'</h2>
+                                <div class="d-flex">
+                                    <p class="font-weight-bold text-success pr-2">ingredientes: </p>
+                                    <p> Masa de hojaldre
+                                        vegana, Margarina vegetal,
+                                        Edulcorante</p>
+                                </div>
+                                <div class="d-flex">
+                                    <p class=" font-weight-bold text-success pr-2">ingredientes faltantes:</p>
+                                    <p class="font-weight-bold">0 </p>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <img class="img-fluid  pt-3" src="'.$imagen.'" alt="">
+                            </div>
+                        </div>
+                    </a>
+                </div>';
+                
+          }
+        }else{
+         echo 'Image not found...';
+            }
+            
 }else{
  echo '    <!--Container 1-->
     <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
@@ -144,7 +188,7 @@ $sth = $conn->query("SELECT r.name, COUNT(*) AS num_ingredientes
     </div>
     End Container 1-->
 
-    <!--Container 2-->
+    <!--Container 2 
     <div class="text-center">
         <div class="d-flex  justify-content-center">
             <h1 class="pr-3">Ingredientes Seleccionados: </h1>
@@ -154,7 +198,7 @@ $sth = $conn->query("SELECT r.name, COUNT(*) AS num_ingredientes
         </div>
         <p id="ingredients">(Masa de hojaldre vegana, Margarina vegetal, Edulcorante)</p>
     </div>
-    <!--End Container 2-->
+    End Container 2-->
 
 
     <!--Container 3-->
