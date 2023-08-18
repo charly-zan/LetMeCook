@@ -81,7 +81,7 @@ $ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
 
 $sth = $conn->query("SELECT r.name, COUNT(*) AS num_ingredientes
     FROM recipe r
-    JOIN recipe_ingredientes ri ON r.id = ri.id_recipe
+    JOIN recipe_ingredients ri ON r.id = ri.id_recipe
     JOIN ingredients i ON ri.id_ingredient = i.id
     WHERE i.name IN ('" . implode("', '", $ingredientesProporcionados) . "')
     GROUP BY r.id");
