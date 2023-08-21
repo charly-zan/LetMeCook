@@ -3,6 +3,7 @@ $ingedientes ="";
 ?>
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="./src/css/style.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -46,8 +47,8 @@ $ingedientes ="";
                 </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/facebook.svg"  alt="facebook"></a></i>
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/twitter.svg" alt="twitter"></a></i>
+                <i><a href="#"><img style="height: 35px;" src="./src/img/facebook.svg"  alt="facebook"></a></i>
+                <i><a href="#"><img style="height: 35px;" src="./src/img/twitter.svg" alt="twitter"></a></i>
             </ul>
         </div>
     </nav>
@@ -225,6 +226,32 @@ $ingedientes ="";
         </div>
       
       <!--End container 5-->
+      <div class="container">
+    <div class="chatbox">
+        <div class="chatbox__support">
+            <div class="chatbox__header">
+                <div class="chatbox__image--header">
+                    <img src="https://img.icons8.com/color/48/000000/circled-user-female-skin-type-5--v1.png" alt="image">
+                </div>
+                <div class="chatbox__content--header">
+                <h4 class="chatbox__heading--header">Food chat</h4>
+              <p class="chatbox__description--header">
+                Hola, soy mr pilopi, ¿en qué te puedo ayudar?        
+            </div>
+            </div>
+            <div class="chatbox__messages">
+                <div></div>
+            </div>
+            <div class="chatbox__footer">
+                <input type="text" placeholder="Write a message...">
+                <button class="chatbox__send--footer send__button">Send</button>
+            </div>
+        </div>
+        <div class="chatbox__button">
+            <button><img src="./src/img/chatbox-icon.svg" /></button>
+        </div>
+    </div>
+</div>
 
 
       <!--Footer-->
@@ -250,6 +277,7 @@ $ingedientes ="";
 
 
 </html>
+<script src="./src/js/app.js"></script>
 <script>
     //en jquery
     //id --> #
