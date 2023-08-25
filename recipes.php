@@ -1,5 +1,6 @@
 <?php
 $ing=(isset($_GET['ing']))?$_GET['ing']:"";
+$uno = '';
 #link other page
 #<li><a href="index.php?rand='.rand(1,99999).'&seccion='.$seccion.'&subseccion=controlpedidos&id='.$id.'" class="color-red">Control De Pedidos '.$rowCONSULTA10['nombre'].'</a></li>
 ?>
@@ -91,7 +92,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
     <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
         <div class="row  shadow-lg rounded">
             <div class="col-6 text-center pt-5">
-                <h1 class="font-weight-bold"  id="textTitle"> Se encontraron "'.$sth ->rowCount().' " <br> Recetas con esos ingredientes!!
+                <h1 class="font-weight-bold"  id="textTitle"> Tenemos "'.$sth ->rowCount().' " <br> Recetas con esos ingredientes!!
                 </h1>
                 </div>
                 <div class="offset-2 col-4">
@@ -109,8 +110,9 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
     <h1  class="text-danger " id="numbIngredients" >'.sizeof($ingredientesProporcionados).'</h1>
     </div>
     </div>';
-    foreach($ingredientesProporcionados as $ingr=>$ingri )print($ingri.',').'
-        
+    
+    foreach($ingredientesProporcionados as $ingr=>$ingri )$uno .= $ingri.','
+        ;print($uno).'
         </div>
         <!--End Container 2-->';
         while($rows = $sth->fetch(PDO::FETCH_ASSOC)){
@@ -161,7 +163,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
     <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
         <div class="row  shadow-lg rounded">
             <div class="col-6 text-center pt-5">
-                <h1 class="font-weight-bold"  id="textTitle"> No se encontraron recetas :(!
+                <h1 class="font-weight-bold"  id="textTitle"> No contamos con  recetas :(!
                 </h1>
             </div>
             <div class="offset-2 col-4">
