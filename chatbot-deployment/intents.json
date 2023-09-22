@@ -5,79 +5,161 @@
       "patterns": [
         "Hi",
         "Hey",
-        "How are you",
-        "Is anyone there?",
         "Hello",
-        "Good day"
+        "Good day",
+        "Hi there",
+        "Greetings",
+        "What's up",
+        "Howdy",
+        "Hola"
       ],
       "responses": [
-        "Hey :-)",
-        "Hello, thanks for visiting",
-        "Hi there, what can I do for you?",
-        "Hi there, how can I help?"
+        "Hello! How can I assist you today?",
+        "Hi there! How can I help you with your cooking questions?",
+        "Hi! What culinary adventures are you embarking on today?",
+        "Hello, food lover! How can I assist you in the kitchen?"
       ]
     },
     {
       "tag": "goodbye",
-      "patterns": ["Bye", "See you later", "Goodbye"],
+      "patterns": [
+        "Goodbye",
+        "Farewell",
+        "See you later",
+        "Bye",
+        "Take care",
+        "Catch you later",
+        "Adios",
+        "Until next time"
+      ],
       "responses": [
-        "See you later, thanks for visiting",
-        "Have a nice day",
-        "Bye! Come back again soon."
+        "Goodbye! If you have more cooking questions, don't hesitate to return.",
+        "Farewell! Enjoy your culinary endeavors.",
+        "See you later! Happy cooking!",
+        "Bye! If you need cooking tips in the future, come back anytime."
       ]
     },
     {
       "tag": "thanks",
-      "patterns": ["Thanks", "Thank you", "That's helpful", "Thank's a lot!"],
-      "responses": ["Happy to help!", "Any time!", "My pleasure"]
-    },
-    {
-      "tag": "items",
       "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?"
+        "Thanks",
+        "Thank you",
+        "Appreciate it",
+        "Thanks a bunch",
+        "You're a lifesaver",
+        "Gracias",
+        "Thanks so much",
+        "Much obliged"
       ],
       "responses": [
-        "We sell coffee and tea",
-        "We have coffee and tea"
+        "You're welcome! If you have more culinary queries, just ask.",
+        "No problem! Happy to assist with your cooking needs.",
+        "You're welcome! Cooking is more enjoyable with a little help.",
+        "Glad I could assist! Feel free to return if you need cooking advice."
       ]
     },
     {
-      "tag": "payments",
+      "tag": "ingredients",
       "patterns": [
-        "Do you take credit cards?",
-        "Do you accept Mastercard?",
-        "Can I pay with Paypal?",
-        "Are you cash only?"
+        "What ingredients do I need for lasagna?",
+        "List ingredients for spaghetti carbonara",
+        "Tell me the components of a chicken stir-fry",
+        "What's in a classic Caesar salad?"
       ],
       "responses": [
-        "We accept VISA, Mastercard and Paypal",
-        "We accept most major credit cards, and Paypal"
+        "For lasagna, you'll need lasagna noodles, ground beef, marinara sauce, ricotta cheese, mozzarella cheese, and spices.",
+        "Spaghetti carbonara requires spaghetti, eggs, Pecorino Romano cheese, pancetta, black pepper, and salt.",
+        "To make a chicken stir-fry, gather chicken breast, vegetables (e.g., bell peppers, broccoli), soy sauce, garlic, and ginger.",
+        "A classic Caesar salad includes romaine lettuce, croutons, Parmesan cheese, Caesar dressing, and optionally anchovies."
       ]
     },
     {
-      "tag": "delivery",
+      "tag": "recipes",
       "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
+        "Can you suggest a chicken curry recipe?",
+        "Give me a recipe for homemade pizza",
+        "How do I make a chocolate cake from scratch?",
+        "What's a simple guacamole recipe?"
       ],
       "responses": [
-        "Delivery takes 2-4 days",
-        "Shipping takes 2-4 days"
+        "Sure! Here's a chicken curry recipe: [Provide detailed recipe instructions]",
+        "Homemade pizza: [Provide detailed recipe instructions]",
+        "To make a chocolate cake from scratch: [Provide detailed recipe instructions]",
+        "Here's a simple guacamole recipe: [Provide detailed recipe instructions]"
       ]
     },
     {
-      "tag": "funny",
+      "tag": "substitutions",
       "patterns": [
-        "Tell me a joke!",
-        "Tell me something funny!",
-        "Do you know a joke?"
+        "What can I use as a substitute for buttermilk?",
+        "I'm out of eggs, what's a good egg substitute?",
+        "Can I replace olive oil with vegetable oil in a recipe?",
+        "What's a vegan alternative for cheese?"
       ],
       "responses": [
-        "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
-        "What did the buffalo say when his son left for college? Bison."
+        "You can use milk with a bit of lemon juice or vinegar as a buttermilk substitute.",
+        "For an egg substitute, try applesauce, mashed banana, or flaxseed gel.",
+        "Yes, you can substitute vegetable oil for olive oil in most recipes.",
+        "There are various vegan cheese alternatives available, such as cashew-based or soy-based cheeses."
+      ]
+    },
+    {
+      "tag": "baking",
+      "patterns": [
+        "How long should I bake cookies?",
+        "What's the ideal oven temperature for baking bread?",
+        "Tell me about high-altitude baking adjustments",
+        "How do I prevent my cake from sinking in the middle?"
+      ],
+      "responses": [
+        "Cookies usually bake for 10-12 minutes at 350°F (180°C).",
+        "Bread typically bakes at 375°F (190°C) for 25-30 minutes, but it varies by recipe.",
+        "For high-altitude baking, you might need to reduce leavening agents and increase liquid. Altitude matters; consult a guide for specifics.",
+        "To prevent cake sinking, ensure it's fully baked, avoid overmixing, and don't open the oven door too soon."
+      ]
+    },
+    {
+      "tag": "cuisines",
+      "patterns": [
+        "Tell me about Italian cuisine",
+        "What's unique about Mexican food?",
+        "What's a popular dish in Thai cuisine?",
+        "Explain the basics of Japanese cooking"
+      ],
+      "responses": [
+        "Italian cuisine is known for pasta, pizza, and flavorful sauces like marinara and Alfredo.",
+        "Mexican food features bold flavors, tortillas, tacos, and dishes like enchiladas and guacamole.",
+        "A popular Thai dish is Pad Thai, which combines stir-fried noodles with shrimp, tofu, peanuts, and lime.",
+        "Japanese cooking emphasizes fresh ingredients, sushi, sashimi, tempura, and teriyaki."
+      ]
+    },
+    {
+      "tag": "seasoning",
+      "patterns": [
+        "How can I season chicken for grilling?",
+        "What spices go well with roasted vegetables?",
+        "Tell me about seasoning a steak",
+        "What herbs are good for flavoring soups?"
+      ],
+      "responses": [
+        "For grilled chicken, try a mix of garlic powder, paprika, salt, pepper, and a touch of cayenne for heat.",
+        "Roasted vegetables pair nicely with rosemary, thyme, garlic, olive oil, salt, and pepper.",
+        "Seasoning a steak can be as simple as salt, pepper, and a bit of garlic powder, or use a steak rub of your choice.",
+        "Common herbs for soups include basil, thyme, oregano, and parsley. The choice depends on the soup's style."
+      ]
+    },
+    {
+      "tag": "desserts",
+      "patterns": [
+        "What's a classic apple pie recipe?",
+        "How can I make a rich chocolate mousse?",
+        "Tell me about making homemade ice cream",
+        "Give me tips for decorating cupcakes"
+      ],
+      "responses": [
+        "Here's a classic apple pie recipe: [Provide detailed recipe instructions]",
+        "To make a rich chocolate mousse: [Provide detailed recipe instructions]",
+        "Homemade ice cream involves milk, cream, sugar, and your choice of flavorings. Use an ice cream maker"
       ]
     }
   ]
