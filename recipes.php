@@ -1,6 +1,8 @@
 <?php
 $ing=(isset($_GET['ing']))?$_GET['ing']:"";
 $uno = '';
+$dos ='';
+$data = '';
 #link other page
 #<li><a href="index.php?rand='.rand(1,99999).'&seccion='.$seccion.'&subseccion=controlpedidos&id='.$id.'" class="color-red">Control De Pedidos '.$rowCONSULTA10['nombre'].'</a></li>
 ?>
@@ -137,13 +139,28 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
                                 <h2 class="font-italic">'.$nombre.'</h2>
                                 <div class="d-flex">
                                     <p class="font-weight-bold text-success pr-2">ingredientes: </p>
-                                    <p> Masa de hojaldre
-                                        vegana, Margarina vegetal,
-                                        Edulcorante</p>
+                                    <p>';
+                                        $sth2 = $conn->query("SELECT i.name from ingredients as i
+                                        INNER  JOIN recipe_ingredients rein on rein.id_recipe =  '$id'
+                                        WHERE rein.id_ingredient = i.id");
+                                        while($rows2 = $sth2->fetch(PDO::FETCH_ASSOC)){
+                                            $data .= $rows2['name'].' ,';
+                                        }
+                                        $cadenaSinComa = substr($data, 0, strlen($data) - 1);
+                                        echo' '.$cadenaSinComa.'
+                                        </p>
                                 </div>
                                 <div class="d-flex">
-                                    <p class=" font-weight-bold text-success pr-2">ingredientes faltantes:</p>
-                                    <p class="font-weight-bold">0 </p>
+                                    <p class=" font-weight-bold text-success pr-2">ingredientes faltantes:</p>';
+                                    // Convierte la cadena en un array, separando por comas y eliminando espacios adicionales
+                                    $cadenaDosArray = array_map('trim', explode(',', $cadenaSinComa));
+                                    // Encuentra la diferencia entre los dos arrays
+                                    $diferencia = array_diff($ingredientesProporcionados, $cadenaDosArray);
+                                    // Convierte el resultado en un array asociativo para una mejor visualización
+                                     $diferencia =  array_values($diferencia);
+                                     foreach($diferencia as $ingr=>$ingri )$dos .= $ingri.','
+                                        ;print($dos).
+                                    '<p class="font-weight-bold">0 </p>
                                 </div>
                             </div>
                             <div class="col-4">
@@ -152,6 +169,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
                         </div>
                     </a>
                 </div>';
+                $dos='';
                 
           }
         }else{
@@ -396,20 +414,20 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
 
 
 
-    <!--Footer-->
-    <footer>
-        <div class="m-4 p-4">
+<!--Footer-->
+<footer>
+          <div class="m-4 p-4">
             <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/inta.svg" alt="inta"></a></i>
             <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/facebook.svg" alt="facebook"></a></i>
             <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/twitter.svg" alt="twitter"></a></i>
             <p class="text-muted float-right">© Let Me Cook -2022</p>
-        </div>
-    </footer>
-    <!-- End Footer-->
+          </div>
+      </footer>
+      <!-- End Footer-->
 
 
         <!-- JavaScript -->
-    <<script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
         <!-- UIkit JS -->

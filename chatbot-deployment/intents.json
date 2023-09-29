@@ -1,165 +1,171 @@
 {
   "intents": [
     {
-      "tag": "greeting",
+      "tag": "saludo",
       "patterns": [
-        "Hi",
+        "Hola",
         "Hey",
-        "Hello",
-        "Good day",
-        "Hi there",
-        "Greetings",
-        "What's up",
-        "Howdy",
-        "Hola"
+        "Que tal",
+        "Buen dia",
+        "Hey  hola",
+        "Saludos",
+        "Que onda",
+        "k tal",
+        "Hi"
       ],
       "responses": [
-        "Hello! How can I assist you today?",
-        "Hi there! How can I help you with your cooking questions?",
-        "Hi! What culinary adventures are you embarking on today?",
-        "Hello, food lover! How can I assist you in the kitchen?"
+        "¡Hola! ¿En qué puedo ayudarte hoy?",
+        "¡Hola! ¿Cómo puedo ayudarte con tus preguntas de cocina?",
+        "¡Hola! ¿En qué aventuras culinarias te embarcarás hoy?",
+        "¡Hola, amante de la comida! ¿Cómo puedo ayudarte en la cocina?"
       ]
     },
     {
-      "tag": "goodbye",
+      "tag": "despedida",
       "patterns": [
-        "Goodbye",
-        "Farewell",
-        "See you later",
-        "Bye",
-        "Take care",
-        "Catch you later",
         "Adios",
-        "Until next time"
+        "Nos vemos",
+        "Nos vemos luego",
+        "Bye",
+        "Adios cuidate",
+        "Hasta luego",
+        "Adios amigo cocinero",
+        "Hasta la proxima"
       ],
       "responses": [
-        "Goodbye! If you have more cooking questions, don't hesitate to return.",
-        "Farewell! Enjoy your culinary endeavors.",
-        "See you later! Happy cooking!",
-        "Bye! If you need cooking tips in the future, come back anytime."
+        "¡Adiós! Si tienes más preguntas de cocina, no dudes en volver.",
+        "¡Adiós! Disfruta de tus aventuras culinarias.",
+        "¡Hasta luego! ¡Feliz cocina!.",
+        "¡Adiós! Si necesitas consejos de cocina en el futuro, vuelve en cualquier momento."
       ]
     },
     {
-      "tag": "thanks",
+      "tag": "gracias",
       "patterns": [
-        "Thanks",
-        "Thank you",
-        "Appreciate it",
-        "Thanks a bunch",
-        "You're a lifesaver",
         "Gracias",
-        "Thanks so much",
-        "Much obliged"
+        "Gracias a ti",
+        "Lo aprecio mucho",
+        "Un monton de gracias",
+        "Me salvaste la vida",
+        "Gracias amigo",
+        "Te lo agradezco",
+        "Muy agradecido"
       ],
       "responses": [
-        "You're welcome! If you have more culinary queries, just ask.",
-        "No problem! Happy to assist with your cooking needs.",
-        "You're welcome! Cooking is more enjoyable with a little help.",
-        "Glad I could assist! Feel free to return if you need cooking advice."
+        "¡De nada! Si tienes más preguntas culinarias, solo pregunta.",
+        "No hay problema. Estoy feliz de ayudar con tus necesidades de cocina.",
+        "De nada. Cocinar es más agradable con un poco de ayuda.",
+        "Me alegra haber podido ayudar. Si necesitas consejos de cocina, no dudes en regresar."
       ]
     },
     {
-      "tag": "ingredients",
+      "tag": "ingredientes",
       "patterns": [
-        "What ingredients do I need for lasagna?",
-        "List ingredients for spaghetti carbonara",
-        "Tell me the components of a chicken stir-fry",
-        "What's in a classic Caesar salad?"
+        "Qué ingredientes necesito para la lasaña",
+        "Lista de ingredientes para el spaghetti carbonara",
+        "Dime los ingredientes de pollo ahumado",
+        "ingredientes para Hamburguesa ",
+        "Qué lleva la ensalada cesar clásica?"
       ],
       "responses": [
-        "For lasagna, you'll need lasagna noodles, ground beef, marinara sauce, ricotta cheese, mozzarella cheese, and spices.",
-        "Spaghetti carbonara requires spaghetti, eggs, Pecorino Romano cheese, pancetta, black pepper, and salt.",
-        "To make a chicken stir-fry, gather chicken breast, vegetables (e.g., bell peppers, broccoli), soy sauce, garlic, and ginger.",
-        "A classic Caesar salad includes romaine lettuce, croutons, Parmesan cheese, Caesar dressing, and optionally anchovies."
+        "Para hacer lasaña, necesitarás láminas de lasaña, carne molida, salsa marinara, queso ricotta y queso mozzarella y especies.",
+        "Para hacer espagueti a la carbonara necesitas espagueti, huevos, queso Pecorino Romano, panceta, pimienta negra y sal.",
+        "Para hacer una hamburguesa carne molida, tocino picado, pan para hamburguesa, cebolla, lechuga , jitomate, Diente de ajo y Aceite",
+        "Para hacer un salteado de pollo, reúne pechuga de pollo, verduras (por ejemplo, pimientos, brócoli), salsa de soja, ajo y jengibre",
+        "Una ensalada César clásica incluye lechuga romana, crutones, queso parmesano, aderezo César y, opcionalmente, anchoas."
       ]
     },
     {
-      "tag": "recipes",
+      "tag": "recetas",
       "patterns": [
-        "Can you suggest a chicken curry recipe?",
-        "Give me a recipe for homemade pizza",
-        "How do I make a chocolate cake from scratch?",
-        "What's a simple guacamole recipe?"
+        "¿Puedes sugerir una receta de pollo al curry?",
+        "Dame una receta para pizza casera",
+        "¿Cómo hago un pastel de chocolate desde cero?",
+        "¿Cuál es la receta sencilla de guacamole?"
       ],
       "responses": [
-        "Sure! Here's a chicken curry recipe: [Provide detailed recipe instructions]",
-        "Homemade pizza: [Provide detailed recipe instructions]",
-        "To make a chocolate cake from scratch: [Provide detailed recipe instructions]",
-        "Here's a simple guacamole recipe: [Provide detailed recipe instructions]"
+        "¡Claro! Aquí tienes una receta de pollo al curry: [Proporciona instrucciones detalladas de la receta]",
+        "Pizza casera: [Proporciona instrucciones detalladas de la receta]",
+        "Para hacer un pastel de chocolate desde cero: [Proporciona instrucciones detalladas de la receta]",
+        "Aquí tienes una receta sencilla de guacamole: [Proporciona instrucciones detalladas de la receta]"
       ]
     },
     {
-      "tag": "substitutions",
+      "tag": "sustituciones",
       "patterns": [
-        "What can I use as a substitute for buttermilk?",
-        "I'm out of eggs, what's a good egg substitute?",
-        "Can I replace olive oil with vegetable oil in a recipe?",
-        "What's a vegan alternative for cheese?"
+        "¿Qué puedo usar como sustituto de la mantequlla?",
+        "Sustituto del azucar",
+        "Sustituto del limon",
+        "Me quedé sin huevos, ¿cuál es un buen sustituto de los huevos?",
+        "¿Puedo reemplazar el aceite de oliva por aceite vegetal en una receta?",
+        "¿Cuál es una alternativa vegana para el queso?"
       ],
       "responses": [
-        "You can use milk with a bit of lemon juice or vinegar as a buttermilk substitute.",
-        "For an egg substitute, try applesauce, mashed banana, or flaxseed gel.",
-        "Yes, you can substitute vegetable oil for olive oil in most recipes.",
-        "There are various vegan cheese alternatives available, such as cashew-based or soy-based cheeses."
+        "Puedes usar leche con un poco de jugo de limón o vinagre como sustituto de mantequilla.",
+        "un medo a un cuarto de  cucharaditas de miel o melaza",
+        "media  cucharadita de vinagre",
+        "Como sustituto del huevo, pruebe con puré de manzana, puré de plátano o gel de linaza.",
+        "Sí, puedes sustituir el aceite vegetal por aceite de oliva en la mayoría de recetas.",
+        "Hay varias alternativas de queso vegano disponibles, como quesos a base de anacardo o de soja."
       ]
     },
     {
-      "tag": "baking",
+      "tag": "coccion",
       "patterns": [
-        "How long should I bake cookies?",
-        "What's the ideal oven temperature for baking bread?",
-        "Tell me about high-altitude baking adjustments",
-        "How do I prevent my cake from sinking in the middle?"
+        "¿Cuánto tiempo debo hornear las galletas?",
+        "¿Cuál es la temperatura ideal del horno para hornear pan?",
+        "Cuéntame sobre los ajustes de horneado a gran altitud.",
+        "¿Cómo evito que mi pastel se hunda por la mitad?"
       ],
       "responses": [
-        "Cookies usually bake for 10-12 minutes at 350°F (180°C).",
-        "Bread typically bakes at 375°F (190°C) for 25-30 minutes, but it varies by recipe.",
-        "For high-altitude baking, you might need to reduce leavening agents and increase liquid. Altitude matters; consult a guide for specifics.",
-        "To prevent cake sinking, ensure it's fully baked, avoid overmixing, and don't open the oven door too soon."
+        "Las galletas generalmente se hornean durante 10 a 12 minutos a 350 °F (180 °C).",
+        "El pan normalmente se hornea a 375 °F (190 °C) durante 25 a 30 minutos, pero varía según la receta.",
+        "Para hornear a gran altura, es posible que deba reducir los agentes leudantes y aumentar el líquido. La altitud importa; consulte una guía para obtener detalles.",
+        "Para evitar que el pastel se hunda, asegúrese de que esté completamente horneado, evite mezclar demasiado y no abra la puerta del horno demasiado pronto."
       ]
     },
     {
-      "tag": "cuisines",
+      "tag": "cocinas",
       "patterns": [
-        "Tell me about Italian cuisine",
-        "What's unique about Mexican food?",
-        "What's a popular dish in Thai cuisine?",
-        "Explain the basics of Japanese cooking"
+        "Háblame de la cocina italiana",
+        "¿Qué tiene de especial la comida mexicana?",
+        "¿Cuál es un plato popular en la cocina tailandesa?",
+        "Explicame los conceptos básicos de la cocina japonesa"
       ],
       "responses": [
-        "Italian cuisine is known for pasta, pizza, and flavorful sauces like marinara and Alfredo.",
-        "Mexican food features bold flavors, tortillas, tacos, and dishes like enchiladas and guacamole.",
-        "A popular Thai dish is Pad Thai, which combines stir-fried noodles with shrimp, tofu, peanuts, and lime.",
-        "Japanese cooking emphasizes fresh ingredients, sushi, sashimi, tempura, and teriyaki."
+        "La cocina italiana es conocida por la pasta, la pizza y las sabrosas salsas como la marinara y la Alfredo.",
+        "La comida mexicana presenta sabores atrevidos, tortillas, tacos y platos como enchiladas y guacamole.",
+        "Un plato tailandés popular es el pad thai, que combina fideos salteados con camarones, tofu, maní y lima.",
+        "La cocina japonesa hace hincapié en los ingredientes frescos, el sushi, el sashimi, la tempura y el teriyaki."
       ]
     },
     {
-      "tag": "seasoning",
+      "tag": "sasonadores",
       "patterns": [
-        "How can I season chicken for grilling?",
-        "What spices go well with roasted vegetables?",
-        "Tell me about seasoning a steak",
-        "What herbs are good for flavoring soups?"
+        "¿Cómo puedo condimentar el pollo para asar?",
+        "¿Qué especias combinan bien con las verduras asadas?",
+        "Como condimentar un bistec",
+        "¿Qué hierbas son buenas para dar sabor a las sopas?"
       ],
       "responses": [
-        "For grilled chicken, try a mix of garlic powder, paprika, salt, pepper, and a touch of cayenne for heat.",
-        "Roasted vegetables pair nicely with rosemary, thyme, garlic, olive oil, salt, and pepper.",
-        "Seasoning a steak can be as simple as salt, pepper, and a bit of garlic powder, or use a steak rub of your choice.",
-        "Common herbs for soups include basil, thyme, oregano, and parsley. The choice depends on the soup's style."
+        "Para pollo asado, pruebe con una mezcla de ajo en polvo, pimentón, sal, pimienta y un toque de cayena para darle calor.",
+        "Las verduras asadas combinan muy bien con romero, tomillo, ajo, aceite de oliva, sal y pimienta.",
+        "Sazonar un bistec puede ser tan simple como sal, pimienta y un poco de ajo en polvo, o usar un aderezo para bistec de su elección.",
+        "Las hierbas comunes para las sopas incluyen albahaca, tomillo, orégano y perejil. La elección depende del estilo de la sopa."
       ]
     },
     {
-      "tag": "desserts",
+      "tag": "postres",
       "patterns": [
-        "What's a classic apple pie recipe?",
-        "How can I make a rich chocolate mousse?",
-        "Tell me about making homemade ice cream",
-        "Give me tips for decorating cupcakes"
+        "¿Cuál es una receta clásica de pay de manzana?",
+        "¿Cómo puedo hacer una rica mousse de chocolate?",
+        "Tcuéntame sobre cómo hacer helado casero",
+        "Dame consejos para decorar cupcakes"
       ],
       "responses": [
-        "Here's a classic apple pie recipe: [Provide detailed recipe instructions]",
-        "To make a rich chocolate mousse: [Provide detailed recipe instructions]",
-        "Homemade ice cream involves milk, cream, sugar, and your choice of flavorings. Use an ice cream maker"
+        "Aquí hay una receta clásica de pastel de manzana: [Proporcione instrucciones detalladas de la receta]",
+        "Para hacer una rica mousse de chocolate: [Proporcione instrucciones detalladas de la receta]",
+        "El helado casero incluye leche, nata, azúcar y los aromas que elijas. Utilice una máquina para hacer helados"
       ]
     }
   ]
