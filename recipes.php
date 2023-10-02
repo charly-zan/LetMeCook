@@ -1,7 +1,7 @@
 <?php
-$ing=(isset($_GET['ing']))?$_GET['ing']:"";
+$ing = (isset($_GET['ing'])) ? $_GET['ing'] : "";
 $uno = '';
-$dos ='';
+$dos = '';
 $data = '';
 #link other page
 #<li><a href="index.php?rand='.rand(1,99999).'&seccion='.$seccion.'&subseccion=controlpedidos&id='.$id.'" class="color-red">Control De Pedidos '.$rowCONSULTA10['nombre'].'</a></li>
@@ -23,16 +23,16 @@ $data = '';
 
     <title>Recetas</title>
     <style>
-        a {
-            text-decoration: none;
-            color: black;
-        }
+    a {
+        text-decoration: none;
+        color: black;
+    }
 
-        a:hover {
+    a:hover {
 
-            text-decoration: none;
+        text-decoration: none;
 
-        }
+    }
     </style>
 </head>
 <header>
@@ -74,126 +74,139 @@ $data = '';
 
 
 <body>
-    
-<?php 
-if($ing != ""){
-    include './src/php/conn.php';
 
-    // Ingredientes proporcionados
-$ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
+    <?php
+    if ($ing != "") {
+        include './src/php/conn.php';
 
-$sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_ingredientes
-    FROM recipe r
-    JOIN recipe_ingredients ri ON r.id = ri.id_recipe
-    JOIN ingredients i ON ri.id_ingredient = i.id
-    WHERE i.name IN ('" . implode("', '", $ingredientesProporcionados) . "')
-    GROUP BY r.id");
+        // Ingredientes proporcionados
+        $ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
 
-    if($sth ->rowCount() > 0){
-        echo'<!--Container 1-->
-    <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
-        <div class="row  shadow-lg rounded">
-            <div class="col-6 text-center pt-5">
-                <h1 class="font-weight-bold"  id="textTitle"> Tenemos "'.$sth ->rowCount().' " <br> Recetas con esos ingredientes!!
-                </h1>
+        $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_ingredientes
+                            FROM recipe r
+                            JOIN recipe_ingredients ri ON r.id = ri.id_recipe
+                            JOIN ingredients i ON ri.id_ingredient = i.id
+                            WHERE i.name IN ('" . implode("', '", $ingredientesProporcionados) . "')
+                            GROUP BY r.id");
+        if ($sth->rowCount() > 0) {
+            echo '
+        <!--Container 1-->
+        <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
+            <div class="row  shadow-lg rounded">
+                <div class="col-6 text-center pt-5">
+                    <h1 class="font-weight-bold"  id="textTitle"> Tenemos "' . $sth->rowCount() . ' " <br> Recetas con esos ingredientes!!
+                    </h1>
                 </div>
                 <div class="offset-2 col-4">
-                <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
+                    <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
                 </div>
-                
-                </div>
-                </div>
+            </div>
+        </div>
     <!--End Container 1-->
+    
     <!--Container 2-->
     <div class="text-center">
-    <div class="d-flex  justify-content-center">
-    <h1 class="pr-3">Ingredientes Seleccionados: </h1>
-    <div>
-    <h1  class="text-danger " id="numbIngredients" >'.sizeof($ingredientesProporcionados).'</h1>
+        <div class="d-flex  justify-content-center">
+            <h1 class="pr-3">Ingredientes Seleccionados: </h1>
+            <div>
+                <h1  class="text-danger " id="numbIngredients" >' . sizeof($ingredientesProporcionados) . '</h1>
+            </div>
+        </div>';
+
+            foreach ($ingredientesProporcionados as $ingr => $ingri)
+                $uno .= $ingri . ','
+                ;
+            print($uno) . '
     </div>
-    </div>';
-    
-    foreach($ingredientesProporcionados as $ingr=>$ingri )$uno .= $ingri.','
-        ;print($uno).'
-        </div>
-        <!--End Container 2-->';
-        while($rows = $sth->fetch(PDO::FETCH_ASSOC)){
-            $nombre = $rows['name'];
-            $tipo = $rows['type'];
-            $imagen = $rows['img'];
-            $id = $rows['id'];
-            $imagentype = $rows['imgtype'];
-            
-        #probAR  este segmento de codigo
-            echo'<div class="container pt-5">
-            <div class="row pb-4">
-                <div class="d-flex col-12">
-                    <h2 class="pr-2">Categoría:  </h2>
-                        <p class="text-success font-weight-bold pt-3" >'.$tipo.'</p>
-                        <p class="text-success font-weight-bold pt-3">(1)</p>        
-                </div>
+    <!--End Container 2-->
+
+
+        <div class="row pb-4">
+            <div class="d-flex col-12">
+                <h2 class="pr-2">Categorías: </h2>
+                <p class="text-warning font-weight-bold pt-3">Comida chatarra
+                <p class="text-warning font-weight-bold pt-3">(2)</p>
+                <br>
+                <p class="text-success font-weight-bold pt-3">Comida chatarra
+                <p class="text-warning font-weight-bold pt-3">(2)</p>
+                </p>
+            </div>
+
+    <div class="container pt-5">
+    <div class="row pb-5">';
+            while ($rows = $sth->fetch(PDO::FETCH_ASSOC)) {
+                $nombre = $rows['name'];
+                $tipo = $rows['type'];
+                $imagen = $rows['img'];
+                $id = $rows['id'];
+                $imagentype = $rows['imgtype'];
+
+                #probAR  este segmento de codigo
+                echo '
                 <div class="col-6 shadow p-2">
-                    <a href="/letmecook/preparation.php">
+                    <a href="/letmecook/preparation.php?idReceta='.$id.'">
                         <div class="row p-3">
                             <div class="col-8">
-                                <h2 class="font-italic">'.$nombre.'</h2>
-                                <div class="d-flex">
-                                    <p class="font-weight-bold text-success pr-2">ingredientes: </p>
-                                    <p>';
-                                        $sth2 = $conn->query("SELECT i.name from ingredients as i
-                                        INNER  JOIN recipe_ingredients rein on rein.id_recipe =  '$id'
-                                        WHERE rein.id_ingredient = i.id");
-                                        while($rows2 = $sth2->fetch(PDO::FETCH_ASSOC)){
-                                            $data .= $rows2['name'].' ,';
-                                        }
-                                        $cadenaSinComa = substr($data, 0, strlen($data) - 1);
-                                        echo' '.$cadenaSinComa.'
+                                <h2 class="font-italic">' . $nombre . '</h2>
+                                    <div class="d-flex">
+                                        <p class="font-weight-bold text-success pr-2">ingredientes: </p>
+                                        <p>';
+                                            $sth2 = $conn->query("SELECT i.name from ingredients as i
+                                                                        INNER  JOIN recipe_ingredients rein on rein.id_recipe =  '$id'
+                                                                        WHERE rein.id_ingredient = i.id");
+                                            while ($rows2 = $sth2->fetch(PDO::FETCH_ASSOC)) {
+                                                $data .= $rows2['name'] . ' ,';
+                                            }
+                                            $cadenaSinComa = substr($data, 0, strlen($data) - 1);
+                                            echo ' ' . $cadenaSinComa . '
                                         </p>
-                                </div>
-                                <div class="d-flex">
-                                    <p class=" font-weight-bold text-success pr-2">ingredientes faltantes:</p>';
-                                    // Convierte la cadena en un array, separando por comas y eliminando espacios adicionales
-                                    $cadenaDosArray = array_map('trim', explode(',', $cadenaSinComa));
-                                    // Encuentra la diferencia entre los dos arrays
-                                    $diferencia = array_diff($ingredientesProporcionados, $cadenaDosArray);
-                                    // Convierte el resultado en un array asociativo para una mejor visualización
-                                     $diferencia =  array_values($diferencia);
-                                     foreach($diferencia as $ingr=>$ingri )$dos .= $ingri.','
-                                        ;print($dos).
-                                    '<p class="font-weight-bold">0 </p>
-                                </div>
+                                    </div>
+                                    <div class="d-flex">
+                                        <p class=" font-weight-bold text-success pr-2">ingredientes Restantes:</p>';
+                                            // Convierte la cadena en un array, separando por comas y eliminando espacios adicionales
+                                            $cadenaDosArray = array_map('trim', explode(',', $cadenaSinComa));
+                                            // Encuentra la diferencia entre los dos arrays
+                                            $diferencia = array_diff($ingredientesProporcionados, $cadenaDosArray);
+                                            // Convierte el resultado en un array asociativo para una mejor visualización
+                                            $diferencia = array_values($diferencia);
+                                            foreach ($diferencia as $ingr => $ingri)
+                                                $dos .= $ingri . ','
+                                                ;
+                                            print($dos) .
+                                    '</div>
                             </div>
                             <div class="col-4">
-                                <img class="img-fluid  pt-3" src="data:'.$imagentype.';base64,'.base64_encode($imagen).'" alt="">
+                                <img class="img-fluid  pt-3" src="data:' . $imagentype . ';base64,' . base64_encode($imagen) . '" alt="">
                             </div>
                         </div>
                     </a>
                 </div>';
-                $dos='';
-                
-          }
-        }else{
-         echo 'Image not found...';
+                $dos = '';
+                $data = '';
+            '</div>';
             }
-            
-}else{
- echo '    <!--Container 1-->
-    <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
-        <div class="row  shadow-lg rounded">
-            <div class="col-6 text-center pt-5">
-                <h1 class="font-weight-bold"  id="textTitle"> No contamos con  recetas :(!
-                </h1>
-            </div>
-            <div class="offset-2 col-4">
-                <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
-            </div>
+        '</div>';
+        } else {
+            echo 'Image not found...';
+        }
 
-        </div>
-    </div>
-    <!--End Container 1-->';
-}
-
-?>
+    } else {
+        echo '
+        <!--Container 1-->
+            <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
+                <div class="row  shadow-lg rounded">
+                    <div class="col-6 text-center pt-5">
+                        <h1 class="font-weight-bold"  id="textTitle"> No contamos con  recetas :(!
+                        </h1>
+                    </div>
+                    <div class="offset-2 col-4">
+                        <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
+                    </div>
+                </div>
+            </div>
+            <!--End Container 1-->';
+    }
+    ?>
 
     <!--Container 1 
     <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
@@ -227,9 +240,9 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
     <div class="container pt-5">
         <div class="row pb-4">
             <div class="d-flex col-12">
-                <h2 class="pr-2">Categoría:  </h2>
-                    <p class="text-success font-weight-bold pt-3" >Vegana</p>
-                    <p class="text-success font-weight-bold pt-3">(1)</p>        
+                <h2 class="pr-2">Categoría: </h2>
+                <p class="text-success font-weight-bold pt-3">Vegana</p>
+                <p class="text-success font-weight-bold pt-3">(1)</p>
             </div>
             <div class="col-6 shadow p-2">
                 <a href="/letmecook/preparation.php">
@@ -253,12 +266,12 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
                     </div>
                 </a>
             </div>
-                <!-- 
+            <!-- 
                 <div class="col-6 shadow p-2">        
                  </div>
                 -->
         </div>
-       
+
         <div class="row pb-4">
             <div class="d-flex col-12">
                 <h2 class="pr-2">Categoría: </h2>
@@ -320,12 +333,12 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
             </div>
         </div>
         <div class="row pb-5">
-            <div class="d-flex col-12">
+            <!-- <div class="d-flex col-12">
                 <h2 class="pr-2">Categoría: </h2>
                 <p style="color:rgb(7, 141, 175)" class=" font-weight-bold pt-3">Balanceada
                 <p style="color:rgb(7, 141, 175)" class=" font-weight-bold pt-3">(3)</p>
                 </p>
-            </div>
+            </div> -->
 
             <div class="col-6 shadow p-2">
                 <a href="/preparation.html">
@@ -406,7 +419,7 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
     <!--End Container 3-->
 
     <!--Container 4-->
-    
+
     <!--End Container 4-->
 
     <!--Container 5-->
@@ -414,23 +427,28 @@ $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_
 
 
 
-<!--Footer-->
-<footer>
-          <div class="m-4 p-4">
+    <!--Footer-->
+    <footer>
+        <div class="m-4 p-4">
             <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/inta.svg" alt="inta"></a></i>
             <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/facebook.svg" alt="facebook"></a></i>
             <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/twitter.svg" alt="twitter"></a></i>
             <p class="text-muted float-right">© Let Me Cook -2022</p>
-          </div>
-      </footer>
-      <!-- End Footer-->
+        </div>
+    </footer>
+    <!-- End Footer-->
 
 
-        <!-- JavaScript -->
-    <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-        <!-- UIkit JS -->
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+        integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+        integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous">
+    </script>
+    <!-- UIkit JS -->
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/uikit@3.16.24/dist/js/uikit-icons.min.js"></script>
 </body>
