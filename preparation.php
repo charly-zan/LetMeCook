@@ -1,7 +1,16 @@
 <?php
+include './src/php/conn.php';
 $idReceta = (isset($_GET['idReceta'])) ? $_GET['idReceta'] : "";
 $ing = (isset($_GET['ing'])) ? $_GET['ing'] : "";
-echo $idReceta;
+$nombre='';
+$pasos='';
+$calorias='';
+$indicaciones='';
+$dificultad ='';
+$autor = '';
+$img ='';
+$imgtype='';
+
 
 ?>
 
@@ -70,23 +79,34 @@ echo $idReceta;
     <?php
     $sth = $conn->query("SELECT * From recipe WHERE id ='$idReceta' ");
     while ($rows = $sth->fetch(PDO::FETCH_ASSOC)) {
-        
+        $nombre = $rows['name'];
+        $pasos= $rows['numbstep'];
+        $calorias= $rows['calories'];
+        $indicaciones= $rows['indication'];
+        $dificultad = $rows['difficulty'];
+        $autor = $rows['author'];
+        $img = $rows['img'];
+        $imgtype= $rows['imgtype'];
+
     }
 echo'
     <!--Container 1-->
     <div class="container mt-5 pt-5">
         <div class="row">
             <div class="col-6 text-center" style="height: 350px;">
-                <h1 class="font-weight-light font-italic" id="textTitle"> Cruasanes veganos</h1>
-                <img style="height: 65%;" class="img-fluid pt-0" src="/letmecook/src/img/croasant.png" alt="croasant">
-                <h3>Total de pasos: 3</h3>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star checked"></span>
-                <span class="fa fa-star"></span>
-                <span class="fa fa-star"></span>
+                <h1 class="font-weight-light font-italic" id="textTitle"> '.$nombre.'</h1>
+                <img style="height: 65%;" class="img-fluid pt-0" src="data:' . $imgtype . ';base64,' . base64_encode($img) . '" alt="'.$nombre.'">
+                <h3>Total de pasos: '.$pasos.'</h3>
+                ';
+                for( $i = 0; $i < $dificultad; $i++ ){
+                    echo'<span class="fa fa-star checked"></span>';
+                };
+                for( $i = 0; $i + $dificultad < 5; $i++ ){
+                    echo'<span class="fa fa-star "></span>';
+                }
+            
 
-            </div>
+            ;echo'</div>
             <div class="col-6">
                 <div class="row shadow">
                     <div class="col-6">
@@ -94,7 +114,7 @@ echo'
                         <img style="height: 40%;" class="img-fluid pt-0" src="/letmecook/src/img/bolw.svg" alt="bolw">
                     </div>
                     <div class="col-6">
-                        <img class="img-fluid rounded pt-5" src="/letmecook/src/img/cook_logo.png" alt="cook_logo">
+                        <img class="img-fluid rounded pt-5 uk-animation-shake uk-animation-reverse" src="/letmecook/src/img/cook_logo.png" alt="cook_logo">
                     </div>
                 </div>
             </div>
