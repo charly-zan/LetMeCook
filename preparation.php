@@ -123,7 +123,7 @@ echo'
     <!--End Container 1-->';
     ?>
 
-
+    <!--Modificar los pasos para que en cada salto de linea sea como un parrafo 2-->
 
 
     <!--Container 2-->
