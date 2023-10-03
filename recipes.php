@@ -9,6 +9,7 @@ $data = '';
 
 <!DOCTYPE html>
 <html lang="en">
+<link rel="stylesheet" href="./src/css/style.css">
 
 <head>
     <meta charset="UTF-8">
@@ -53,7 +54,8 @@ $data = '';
                     <a class="nav-link" href="#">Food</a>
                 </li>
                 <li class="nav-item my-auto">
-                    <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline" href="/index.html">Let's
+                    <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
+                        href="/letmecook/index.php">Let's
                         Food!</a>
                 </li>
                 <li class="nav-item">
@@ -185,7 +187,9 @@ $data = '';
                 $data = '';
             '</div>';
             }
-        '</div>';
+        '</div>
+        <div class="col-6 shadow p-2">        
+                 </div>';
         } else {
             echo 'Image not found...';
         }
@@ -200,7 +204,7 @@ $data = '';
                         </h1>
                     </div>
                     <div class="offset-2 col-4">
-                        <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
+                        <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/FoodSad.png" alt="Food">
                     </div>
                 </div>
             </div>
@@ -235,8 +239,8 @@ $data = '';
     </div>
     End Container 2-->
 
-
-    <!--Container 3-->
+    <!-- 
+     Container 3 
     <div class="container pt-5">
         <div class="row pb-4">
             <div class="d-flex col-12">
@@ -266,10 +270,10 @@ $data = '';
                     </div>
                 </a>
             </div>
-            <!-- 
+            
                 <div class="col-6 shadow p-2">        
                  </div>
-                -->
+                
         </div>
 
         <div class="row pb-4">
@@ -333,12 +337,12 @@ $data = '';
             </div>
         </div>
         <div class="row pb-5">
-            <!-- <div class="d-flex col-12">
+             <div class="d-flex col-12">
                 <h2 class="pr-2">Categoría: </h2>
                 <p style="color:rgb(7, 141, 175)" class=" font-weight-bold pt-3">Balanceada
                 <p style="color:rgb(7, 141, 175)" class=" font-weight-bold pt-3">(3)</p>
                 </p>
-            </div> -->
+            </div>
 
             <div class="col-6 shadow p-2">
                 <a href="/preparation.html">
@@ -415,7 +419,7 @@ $data = '';
 
         </div>
     </div>
-
+-->
     <!--End Container 3-->
 
     <!--Container 4-->
@@ -424,8 +428,35 @@ $data = '';
 
     <!--Container 5-->
     <!--End Container 5-->
+    </div>
 
-
+    <div class="container">
+        <div class="chatbox">
+            <div class="chatbox__support">
+                <div class="chatbox__header">
+                    <div class="chatbox__image--header">
+                        <img style="height: 60px;" src="/letmecook/src/img/chef.png" alt="image">
+                    </div>
+                    <div class="chatbox__content--header">
+                        <h4 class="chatbox__heading--header">Let Me Chat</h4>
+                        <p class="chatbox__description--header">
+                            Hola, soy mr pilopi <br>
+                            ¿En qué te puedo ayudar?
+                    </div>
+                </div>
+                <div class="chatbox__messages">
+                    <div></div>
+                </div>
+                <div class="chatbox__footer">
+                    <input type="text" placeholder="Write a message...">
+                    <button class="chatbox__send--footer send__button">Send</button>
+                </div>
+            </div>
+            <div class="chatbox__button">
+                <button><img src="./src/img/chatbox-icon.svg" /></button>
+            </div>
+        </div>
+    </div>
 
     <!--Footer-->
     <footer>
@@ -454,3 +485,5 @@ $data = '';
 </body>
 
 </html>
+
+<script src="./src/js/app.js"></script>
