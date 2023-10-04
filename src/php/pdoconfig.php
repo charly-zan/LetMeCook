@@ -1,6 +1,6 @@
 <?php
     $servername = "localhost";
-    $database = "letmecook";
-    $username = "root";
-    $password = "";
+    $database = "id21349947_letmecook";
+    $username = "id21349947_root";
+    $password = "Carlos9720*";
 ?>
