@@ -165,11 +165,11 @@ $data = '';
                                         </p>
                                     </div>
                                     <div class="d-flex">
-                                        <p class=" font-weight-bold text-success pr-2">ingredientes Restantes:</p>';
+                                        <p class=" font-weight-bold text-success pr-2">ingredientes Faltantes:</p>';
                                             // Convierte la cadena en un array, separando por comas y eliminando espacios adicionales
                                             $cadenaDosArray = array_map('trim', explode(',', $cadenaSinComa));
                                             // Encuentra la diferencia entre los dos arrays
-                                            $diferencia = array_diff($ingredientesProporcionados, $cadenaDosArray);
+                                            $diferencia = array_diff($cadenaDosArray, $ingredientesProporcionados);
                                             // Convierte el resultado en un array asociativo para una mejor visualización
                                             $diferencia = array_values($diferencia);
                                             foreach ($diferencia as $ingr => $ingri)
@@ -192,7 +192,20 @@ $data = '';
         <div class="col-6 shadow p-2">        
                  </div>';
         } else {
-            echo 'Image not found...';
+            echo '
+        <!--Container 1-->
+            <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
+                <div class="row  shadow-lg rounded">
+                    <div class="col-6 text-center pt-5">
+                        <h1 class="font-weight-bold"  id="textTitle"> No contamos con  recetas :(!
+                        </h1>
+                    </div>
+                    <div class="offset-2 col-4">
+                        <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/FoodSad.png" alt="Food">
+                    </div>
+                </div>
+            </div>
+            <!--End Container 1-->';
         }
 
     } else {
