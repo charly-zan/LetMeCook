@@ -1,5 +1,5 @@
 <?php
-$ing = (isset($_GET['ing'])) ? $_GET['ing'] : "";
+$ingredientesProporcionados = (isset($_GET['ing'])) ? $_GET['ing'] : "";
 $uno = '';
 $dos = '';
 $data = '';
@@ -78,11 +78,12 @@ $data = '';
 <body>
 
     <?php
-    if ($ing != "") {
+    if ($ingredientesProporcionados != "") {
         include './src/php/conn.php';
-
         // Ingredientes proporcionados
-        $ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
+        //$ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
+        //Lo hacemos array separado por comas
+        $ingredientesProporcionados = array_map('trim', explode(',', $ingredientesProporcionados));
 
         $sth = $conn->query("SELECT r.id,r.name,r.type,r.img,r.imgtype, COUNT(*) AS num_ingredientes
                             FROM recipe r
