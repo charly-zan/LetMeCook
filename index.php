@@ -25,7 +25,7 @@ $ingedientes ="";
     <!--Navbar-->
     <nav
         class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start fixed-top">
-        <a class="navbar-brand d-md-none d-inline" href="">Let's Food!</a>
+        <a class="navbar-brand d-md-none d-inline" href="">Vamos a cocinar!</a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -40,7 +40,7 @@ $ingedientes ="";
                 </li>
                 <li class="nav-item my-auto">
                     <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
-                        href="/letmecook/index.php">Let's Food!</a>
+                        href="/letmecook/index.php">Vamos a cocinar!</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Food</a>
@@ -64,12 +64,12 @@ $ingedientes ="";
         <div class="container">
             <div class="row">
                 <div class="col-6 ">
-                    <h1 class="display-4 font-weight-bold">Let´s me cook <br>for You !</h1>
+                    <h1 class="display-4 font-weight-bold">Déjame cocinar  <br>para ti !</h1>
                     <p class="lead">Crea impresionantes Recetas de manera Fácil</p>
                     <hr>
                     <p>Crea recetas en cuestión de minutos, tan solo ingresa la cantidad de ingredientes que tienes y te
                         recomendaremos recetas</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+                    <a class="btn btn-primary btn-lg" href="#" role="button">Mas información</a>
                 </div>
                 <div class="col-6 uk-overflow-hidden">
                     <img class="img-fluid rounded-circle k-animation-reverse uk-transform-origin-top-right"
@@ -121,7 +121,7 @@ $ingedientes ="";
                     que quiere cocinar x receta o que quiere cocinar algo con los mínimos de
                     ingredientes disponibles en su casa.</p>
                 <br>
-                <p class=" text-muted uk-card">Con Let Me Cook cocinar será como ponerte los zapatos, será sencillo y
+                <p class=" text-muted uk-card">Con nuestra app cocinar será como ponerte los zapatos, será sencillo y
                     divertido.</p>
                 <br>
                 <p class="font-weight-bold uk-card">¡Qué esperas!</p>
@@ -247,7 +247,7 @@ $ingedientes ="";
                         <img style="height: 60px;" src="/letmecook/src/img/chef.png" alt="image">
                     </div>
                     <div class="chatbox__content--header">
-                        <h4 class="chatbox__heading--header">Let Me Chat</h4>
+                        <h4 class="chatbox__heading--header">Déjame ayudarte</h4>
                         <p class="chatbox__description--header">
                             Hola, soy mr pilopi <br>
                             ¿En qué te puedo ayudar?
@@ -258,7 +258,7 @@ $ingedientes ="";
                 </div>
                 <div class="chatbox__footer">
                     <input type="text" placeholder="Write a message...">
-                    <button class="chatbox__send--footer send__button">Send</button>
+                    <button class="chatbox__send--footer send__button">Enviar</button>
                 </div>
             </div>
             <div class="chatbox__button">

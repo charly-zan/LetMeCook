@@ -40,7 +40,7 @@ $data = '';
     <!--Navbar-->
     <nav
         class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start fixed-top">
-        <a class="navbar-brand d-md-none d-inline" href="">Let's Food!</a>
+        <a class="navbar-brand d-md-none d-inline" href="">Vamos a cocinar!</a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -55,8 +55,7 @@ $data = '';
                 </li>
                 <li class="nav-item my-auto">
                     <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
-                        href="/letmecook/index.php">Let's
-                        Food!</a>
+                        href="/letmecook/index.php">Vamos a cocinar!</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#">Food</a>
@@ -452,7 +451,7 @@ $data = '';
                         <img style="height: 60px;" src="/letmecook/src/img/chef.png" alt="image">
                     </div>
                     <div class="chatbox__content--header">
-                        <h4 class="chatbox__heading--header">Let Me Chat</h4>
+                        <h4 class="chatbox__heading--header">Déjame ayudarte</h4>
                         <p class="chatbox__description--header">
                             Hola, soy mr pilopi <br>
                             ¿En qué te puedo ayudar?
@@ -463,7 +462,7 @@ $data = '';
                 </div>
                 <div class="chatbox__footer">
                     <input type="text" placeholder="Write a message...">
-                    <button class="chatbox__send--footer send__button">Send</button>
+                    <button class="chatbox__send--footer send__button">Enviar</button>
                 </div>
             </div>
             <div class="chatbox__button">
