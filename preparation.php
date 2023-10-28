@@ -115,7 +115,7 @@ echo'
             <div class="col-6">
                 <div class="row shadow">
                     <div class="col-6">
-                        <h1 class="pt-5 pb-0 font-weight-bold">Lets Cook!</h1>
+                        <h1 class="pt-5 pb-0 font-weight-bold">Manos a la obra !</h1>
                         <img style="height: 40%;" class="img-fluid pt-0" src="/letmecook/src/img/bolw.svg" alt="bolw">
                     </div>
                     <div class="col-6">
