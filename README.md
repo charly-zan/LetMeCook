@@ -112,7 +112,9 @@ Una vez seleccionada cualquier receta, ésta te proporcionará en sencillos paso
 Ilustración 5
 
 Ilustración 6
-Página web demo: https://letmecook.herokuapp.com/index.html
+Página web : https://beached-gravity.000webhostapp.com/letmecook/index.php
+Python API : https://pruebasaversifunciona.onrender.com/
+Documentecion https://datasmarts.net/es/que-es-un-optimizador-y-para-que-se-usa-en-deep-learning/
 
 ---
 
