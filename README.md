@@ -113,3 +113,7 @@ Ilustración 5
 
 Ilustración 6
 Página web demo: https://letmecook.herokuapp.com/index.html
+
+---
+
+valides de la red 70%
