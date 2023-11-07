@@ -33,20 +33,53 @@ $ingedientes ="";
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-md-center text-left">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Food</a>
+                    <img style="height: 35px;" class="img-fluid uk-animation-slide-left"
+                        src="/letmecook/src/img/pizzahut.svg" alt="pizza">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Info</a>
+                    <a class="nav-link" href="#modal-ingredientes" uk-toggle>Ingredientes</a>
                 </li>
+                <!-- MODAL -->
+                <div id="modal-ingredientes" class="mt-5" uk-modal>
+                    <div class="uk-modal-dialog">
+
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                        <div class="uk-modal-header mt-3"><strong>Total de ingredientes en la base de datos</strong>
+                            <h2 class="uk-modal-title">Los ingredientes con recetas aparecerán subrayados</h2>
+                        </div>
+
+                        <div class="uk-modal-body" uk-overflow-auto>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6">
+                                        <ul>Ingredientes con recetas
+                                            <li>pera</li>
+                                            <li>papa</li>
+                                            <li><mark>platano </mark></li>
+                                            <li>tortilla</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-6">
+
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODAL -->
+
                 <li class="nav-item my-auto">
                     <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
                         href="/letmecook/index.php">Vamos a cocinar!</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#modal-overflow" uk-toggle>Agregar</a>
+                    <a class="nav-link" href="#modal-agregar" uk-toggle>Agregar</a>
                 </li>
                 <!-- MODAL -->
-                <div id="modal-overflow" class="mt-5" uk-modal>
+                <div id="modal-agregar" class="mt-5" uk-modal>
                     <div class="uk-modal-dialog">
 
                         <button class="uk-modal-close-default" type="button" uk-close></button>
@@ -56,70 +89,53 @@ $ingedientes ="";
                         </div>
 
                         <div class="uk-modal-body" uk-overflow-auto>
+                            <div class="container">
+                                <div class="row text-center align-items-center">
+                                    <div class="col-6 p-3">
+                                        <label for="numeroSelects">¿Cuantos ingredientes contiene?:</label>
+                                        <input type="number" id="numeroSelects" min="1" max="20" step="1" value="1"
+                                            onchange="generarSelects()">
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
+                                    </div>
+                                    <div class="col-6 p-2" id="contenedorSelects">
+                                        <!-- Aquí se generarán los selects -->
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <label for="nombreRecetaForm">Nombre del platillo:</label>
+                                        <input type="text" id="nombreRecetaForm">
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <label for="caloriasRecetaForm">Calorias:</label>
+                                        <input type="number" id="caloriasRecetaForm">
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <label for="TipoRecetaForm">Tipo:</label>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
+                                        <select name="TipoRecetaForm" id="TipoRecetaForm">
+                                            <option value="Vegana">Vegana</option>
+                                            <option value="Bebida">Bebida</option>
+                                            <option value="Desayuno">Desayuno</option>
+                                            <option value="Ensalada">Ensalada</option>
+                                            <option value="Postre">Postre</option>
+                                            <option value="Pan">Pan</option>
+                                            <option value="Principal">Principal</option>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
+                                        </select>
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <label for="TipoDificultadForm">Dificultad:</label>
+                                        <input type="number" id="TipoDificultadForm" min="1" max="5" step="1" value="1">
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <label for="TipoAutorForm">Autor:</label>
+                                        <input type="text" id="TipoAutorForm">
+                                    </div>
+                                    <div class="col-6 p-3">
+                                        <label for="TipoImagenForm">Imagen:</label>
+                                        <input type="file" id="TipoImagenForm" name="image" />
+                                    </div>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="uk-modal-footer uk-text-right">
@@ -131,7 +147,8 @@ $ingedientes ="";
                 </div>
                 <!-- END MODAL -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Food</a>
+                    <img style="height: 35px;" class="img-fluid uk-animation-slide-right"
+                        src="/letmecook/src/img/drikfood.svg" alt="drikfood">
                 </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
@@ -411,9 +428,31 @@ $("#buscar").click(function() {
             }
 
         });
-
-
 });
+
+function generarSelects() {
+    // Obtener el valor del input
+    var numero = parseInt(document.getElementById("numeroSelects").value);
+
+    // Obtener el contenedor de selects
+    var contenedor = document.getElementById("contenedorSelects");
+
+    // Limpiar cualquier select existente en el contenedor
+    contenedor.innerHTML = "";
+
+    // Generar los selects con IDs únicos
+    for (var i = 1; i <= numero; i++) {
+        var select = document.createElement("select");
+        select.classList.add("m-2");
+        select.id = "select" + i; // Asignar un ID único
+        select.innerHTML = `
+                    <option  value="opcion1">Opción 1</option>
+                    <option  value="opcion2">Opción 2</option>
+                    <option  value="opcion3">Opción 3</option>
+                `;
+        contenedor.appendChild(select);
+    }
+}
 </script>
 
 
