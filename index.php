@@ -25,7 +25,7 @@ $ingedientes ="";
     <!--Navbar-->
     <nav
         class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start fixed-top">
-        <a class="navbar-brand d-md-none d-inline" href="">Vamos a cocinar!</a>
+        <a class="navbar-brand d-md-none d-inline" href="">¡Vamos a cocinar!</a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -73,7 +73,7 @@ $ingedientes ="";
 
                 <li class="nav-item my-auto">
                     <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
-                        href="/letmecook/index.php">Vamos a cocinar!</a>
+                        href="/letmecook/index.php">¡Vamos a cocinar!</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#modal-agregar" uk-toggle>Agregar</a>
@@ -166,12 +166,12 @@ $ingedientes ="";
         <div class="container">
             <div class="row">
                 <div class="col-6 ">
-                    <h1 class="display-4 font-weight-bold">Déjame cocinar <br>para ti !</h1>
+                    <h1 class="display-4 font-weight-bold">¡Déjame cocinar <br>para ti !</h1>
                     <p class="lead">Crea impresionantes Recetas de manera Fácil</p>
                     <hr>
                     <p>Crea recetas en cuestión de minutos, tan solo ingresa la cantidad de ingredientes que tienes y te
                         recomendaremos recetas</p>
-                    <a class="btn btn-primary btn-lg" href="#" role="button">Mas información</a>
+
                 </div>
                 <div class="col-6 uk-overflow-hidden">
                     <img class="img-fluid rounded-circle k-animation-reverse uk-transform-origin-top-right"
@@ -206,9 +206,9 @@ $ingedientes ="";
             <div class="col-6 uk-card">
                 <p class="text-uppercase uk-card">Un poco de <br> nosotros....<img style="height: 25px;"
                         class="img-fluid" src="/letmecook/src/img/heart.svg"></p>
-                <h2 class="display-4 uk-card">Quién es Let Me Cook?</h2>
+                <h2 class="display-4 uk-card">¿Quién es LetMeCook?</h2>
                 <br>
-                <p class=" text-muted uk-card">Let me cook es una plataforma de creación de alimentos saludables,
+                <p class=" text-muted uk-card">LetMeCook es una plataforma de creación de alimentos saludables,
                     no saludables e incluso veganos , con tan solo ingresar la cantidad
                     de ingredientes que tienes nuestra plataforma te recomendará el tipo
                     de alimento que se puede preparar con los mismos.</p>
@@ -217,7 +217,7 @@ $ingedientes ="";
                     nuestro recetario, cuidamos tu economía, salud y bienestar</p>
             </div>
             <div class=" col-6 uk-card">
-                <h2 class="display-4 uk-card">Porqué usar nuestra App?</h2>
+                <h2 class="display-4 uk-card">¿Por qué usar nuestra App?</h2>
                 <br>
                 <p class=" text-muted uk-card">El uso de nuestra plataforma será de gran utilidad para cualquier persona
                     que quiere cocinar x receta o que quiere cocinar algo con los mínimos de
@@ -240,7 +240,7 @@ $ingedientes ="";
         <div class="row">
             <div class="col-12">
                 <h3 class="font-weight-bold">Beneficios</h3>
-                <p class="text-muted">Let Me Cook ofrece un sin fin de beneficios para nuestros <br> visitantes: </p>
+                <p class="text-muted">LetMeCook ofrece un sin fin de beneficios para nuestros <br> visitantes: </p>
             </div>
         </div>
         <div class="row uk-animation-toggle " tabindex="0">
