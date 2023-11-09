@@ -37,7 +37,7 @@ $ingedientes ="";
                         src="/letmecook/src/img/pizzahut.svg" alt="pizza">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#modal-ingredientes" uk-toggle>Ingredientes</a>
+                    <a class="nav-link " href="#modal-ingredientes" id="ingredientes" uk-toggle>Ingredientes</a>
                 </li>
                 <!-- MODAL -->
                 <div id="modal-ingredientes" class="mt-5" uk-modal>
@@ -45,24 +45,34 @@ $ingedientes ="";
 
                         <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                        <div class="uk-modal-header mt-3"><strong>Total de ingredientes en la base de datos</strong>
-                            <h2 class="uk-modal-title">Los ingredientes con recetas aparecerán subrayados</h2>
+                        <div class="uk-modal-header mt-3 text-center align-items-center"><strong>Total de ingredientes
+                                en la base de datos</strong>
+                            <div class="row">
+                                <div class="col-6 mt-4">
+                                    <h3>Ingredientes con recetas</h3>
+                                </div>
+                                <div class="col-6 mt-4">
+                                    <h3>Ingredientes</h3>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="uk-modal-body" uk-overflow-auto>
                             <div class="container">
                                 <div class="row">
-                                    <div class="col-6">
-                                        <ul>Ingredientes con recetas
-                                            <li>pera</li>
-                                            <li>papa</li>
-                                            <li><mark>platano </mark></li>
-                                            <li>tortilla</li>
-                                        </ul>
+                                    <div class="col-6" id="listaIngredientesreceta">
                                     </div>
-                                    <div class="col-6">
+                                    <div class="col-6" id="listaIngredientes">
+                                    </div>
+                                </div>
+                                <div class="row">
 
-                                    </div>
+                                    <label for="AgregarIngrediente">Agregar nuevo ingrediente: </label>
+                                    <input type="text" class="ml-2 mr-2 col-4" id="AgregarIngrediente"
+                                        pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+">
+                                    <button type="button" id="AgregarIngredienteBoton"
+                                        class="uk-button uk-button-primary col-3">Agregar</button>
+
 
                                 </div>
                             </div>
@@ -84,7 +94,8 @@ $ingedientes ="";
 
                         <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                        <div class="uk-modal-header mt-3"><strong>Ingrese un nuevo platillo</strong>
+                        <div class="uk-modal-header mt-3 text-center align-items-center"><strong>Ingrese un nuevo
+                                platillo</strong>
                             <h2 class="uk-modal-title"></h2>
                         </div>
 
@@ -132,15 +143,20 @@ $ingedientes ="";
                                     </div>
                                     <div class="col-6 p-3">
                                         <label for="TipoImagenForm">Imagen:</label>
-                                        <input type="file" id="TipoImagenForm" name="image" />
+                                        <input type="file" accept="image/*" id="TipoImagenForm" name="image" />
+                                    </div>
+                                    <div class="col">
+                                        <label for="TipoRecetaFrom">Ingrese los pasos de la receta</label>
+                                        <textarea name="TipoRecetaFrom" id="TipoRecetaFrom" cols="50"
+                                            rows="30"></textarea>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="uk-modal-footer uk-text-right">
-                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                            <button class="uk-button uk-button-primary" type="button">Save</button>
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                            <button class="uk-button uk-button-primary" type="button">Guardar</button>
                         </div>
 
                     </div>
@@ -305,7 +321,7 @@ $ingedientes ="";
                         <img style="height: 60px;" src="/letmecook/src/img/womanstudent.svg" alt="womanstudent">
                     </div>
                     <div class="col-4 p-0 m-0">
-                        <p class="font-weight-bold m-0">Alberta Jacobs</p>
+                        <p class="font-weight-bold m-0">Alberta Jacobo</p>
                         <p class="text-muted">Estudiante</p>
 
                     </div>
@@ -430,6 +446,105 @@ $("#buscar").click(function() {
         });
 });
 
+$("#ingredientes").click(function() {
+
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                recuperalistaingredientes: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+                $("#listaIngredientesreceta").html(datos.listaingredientesreceta);
+                $("#listaIngredientes").html(datos.listaIngredientes);
+
+
+
+            }
+
+        });
+});
+/////////////MODIFICAR
+$("#AgregarIngredienteBoton").click(function() {
+    var ingredientenuevo = $("#AgregarIngrediente").val();
+
+    if (!esCadenaValida(ingredientenuevo)) {
+        alert("El nombre solo debe contener letras.");
+        e.preventDefault(); // Evita que se envíe el formulario
+    } else {
+        $.ajax({
+                method: "POST",
+                url: "src/php/action.php",
+                data: {
+                    ingredientenuevo: ingredientenuevo,
+                    agregaringrediente: 1
+                }
+            })
+            .done(function(response) {
+                console.log(response);
+                datos = JSON.parse(response);
+                UIkit.notification.closeAll();
+
+                $("#AgregarIngrediente").val("");
+                mostrarDatosEnLista();
+                if (datos.estatus == 1) {
+                    UIkit.notification(datos.msj);
+                } else {
+                    UIkit.notification(datos.msj);
+                }
+
+            });
+
+
+    }
+
+
+
+
+});
+
+
+function esCadenaValida(valor) {
+    // Utilizamos una expresión regular para validar que solo haya letras (mayúsculas o minúsculas) y espacios
+    var patron = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+    return patron.test(valor);
+}
+
+function mostrarDatosEnLista() {
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                recuperalistaingredientes: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+                $("#listaIngredientesreceta").html(datos.listaingredientesreceta);
+                $("#listaIngredientes").html(datos.listaIngredientes);
+
+
+
+            }
+
+        });
+
+}
+
+
+
 function generarSelects() {
     // Obtener el valor del input
     var numero = parseInt(document.getElementById("numeroSelects").value);
@@ -437,21 +552,45 @@ function generarSelects() {
     // Obtener el contenedor de selects
     var contenedor = document.getElementById("contenedorSelects");
 
+
     // Limpiar cualquier select existente en el contenedor
     contenedor.innerHTML = "";
 
-    // Generar los selects con IDs únicos
-    for (var i = 1; i <= numero; i++) {
-        var select = document.createElement("select");
-        select.classList.add("m-2");
-        select.id = "select" + i; // Asignar un ID único
-        select.innerHTML = `
-                    <option  value="opcion1">Opción 1</option>
-                    <option  value="opcion2">Opción 2</option>
-                    <option  value="opcion3">Opción 3</option>
-                `;
-        contenedor.appendChild(select);
-    }
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                seleccionarIngredientes: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+                // Generar los selects con IDs únicos
+                for (var i = 1; i <= numero; i++) {
+                    var select = document.createElement("select");
+                    select.classList.add("m-2");
+                    select.classList.add("col-5");
+
+                    select.id = "select" + i; // Asignar un ID único
+                    /*select.innerHTML = `       MODIFICAAAAAAAAAAAAAAAR
+                                <option  value="opcion1">Opción 1</option>
+                                <option  value="opcion2">Opción 2</option>
+                                <option  value="opcion3">Opción 3</option>
+                            `;
+                    */
+                    select.innerHTML = datos.opciones;
+                    contenedor.appendChild(select);
+                }
+            }
+
+        });
+
+
 }
 </script>
 
