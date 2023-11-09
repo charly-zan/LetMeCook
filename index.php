@@ -286,7 +286,7 @@ $ingedientes ="";
         <div class="row">
             <div class="col-6">
                 <h3 class="font-weight-bold">Acerca de</h3>
-                <p class="font-weight-bold text-muted font-italic">Mr. Chef Ronal McDonal </p>
+                <p class="font-weight-bold text-muted font-italic">LetMeCook </p>
                 <p class="text-muted">Idea generada en un pequeño cubículo de la universidad de guadalajara
                     con la finalidad de poder cocinar sin saber hacerlo y al mismo modo
                     crear recetas saludables con elementos que tenemos a la mano.</p>
@@ -367,7 +367,7 @@ $ingedientes ="";
                     <div class="chatbox__content--header">
                         <h4 class="chatbox__heading--header">Déjame ayudarte</h4>
                         <p class="chatbox__description--header">
-                            Hola, soy mr pilopi <br>
+                            Hola, soy Sr. pilopi <br>
                             ¿En qué te puedo ayudar?
                     </div>
                 </div>
@@ -375,7 +375,7 @@ $ingedientes ="";
                     <div></div>
                 </div>
                 <div class="chatbox__footer">
-                    <input type="text" placeholder="Write a message...">
+                    <input type="text" placeholder="Escribe aquí...">
                     <button class="chatbox__send--footer send__button">Enviar</button>
                 </div>
             </div>
