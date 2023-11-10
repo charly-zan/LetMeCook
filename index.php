@@ -94,8 +94,8 @@ $ingedientes ="";
 
                         <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                        <div class="uk-modal-header mt-3 text-center align-items-center"><strong>Ingrese un nuevo
-                                platillo</strong>
+                        <div class="uk-modal-header mt-3 text-center align-items-center"><strong>Ingrese una nueva
+                                receta</strong>
                             <h2 class="uk-modal-title"></h2>
                         </div>
 
@@ -112,7 +112,7 @@ $ingedientes ="";
                                         <!-- Aquí se generarán los selects -->
                                     </div>
                                     <div class="col-6 p-3">
-                                        <label for="nombreRecetaForm">Nombre del platillo:</label>
+                                        <label for="nombreRecetaForm">Nombre de la receta:</label>
                                         <input type="text" id="nombreRecetaForm">
                                     </div>
                                     <div class="col-6 p-3">
@@ -156,7 +156,8 @@ $ingedientes ="";
 
                         <div class="uk-modal-footer uk-text-right">
                             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
-                            <button class="uk-button uk-button-primary" type="button">Guardar</button>
+                            <button class="uk-button uk-button-primary" type="button"
+                                id="enviarDatosForm">Guardar</button>
                         </div>
 
                     </div>
@@ -441,6 +442,33 @@ $("#buscar").click(function() {
                 UIkit.notification(datos.msj);
                 console.log(datos.ingredientes);
                 location.href = "/letmecook/recipes.php?ing=" + ingredientes;
+            }
+
+        });
+});
+
+
+// MODIFICAR DATOS EDITAAAAAAAAAAAAAAAAAAAAAAAAR
+$("#enviarDatosForm").click(function() {
+    var numeroSelects = $("#numeroSelects").val();
+
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                enviardatosform: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+
+
+
             }
 
         });

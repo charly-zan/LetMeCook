@@ -24,6 +24,11 @@ $(".kardex").click(function () {
     }
   });
 });
+/////////////RECUPERA EL ULTIMO ID DE LA BASE DE DATOS//////////////////////////////////////////
+$rs = mysql_query("SELECT @@identity AS id");
+if (($row = mysql_fetch_row($rs))) {
+  $id = trim($row[0]);
+}
 
 /*$hola.= '<tr>';
 							$hola.= '<td class="uk-text-nowrap">';
