@@ -201,3 +201,25 @@ html {
   box-shadow: 0px 10px 15px rgba(0, 0, 0, 0.1);
   cursor: pointer;
 }
+
+.Vegana {
+  color: green;
+}
+.Bebida {
+  color: royalblue;
+}
+.Desayuno {
+  color: gold;
+}
+.Ensalada {
+  color: darkgreen;
+}
+.Postre {
+  color: brown;
+}
+.Pan {
+  color: chocolate;
+}
+.PlatoFuerte {
+  color: lime;
+}

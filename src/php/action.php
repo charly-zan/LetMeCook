@@ -23,6 +23,75 @@ if(isset($_POST['buscaringredientes'])){
 
 }
 
+//FORM ingresar receta
+if(isset($_POST["enviarDatosForm"])){
+   $TipoutorFrom = $_POST['TipoAutorForm'];
+   $numeroSelects = $_POST['numeroSelects'];
+   $TipoRecetaForm = $_POST['TipoRecetaForm'];
+   $nombreRecetaForm = $_POST['nombreRecetaForm'];
+   $caloriasRecetaForm = $_POST['caloriasRecetaForm'];
+   $TipoDificultadForm = $_POST['TipoDificultadForm'];
+   $PasosRecetaForm = $_POST['PasosRecetaForm'];
+
+   //labels
+   $msjClase = 'success';
+   $msjIcon  = 'check';
+   $msjTxt   = '<br>Receta<br>Agregada';
+   
+ //imagen
+   $check = getimagesize($_FILES["image"]["tmp_name"]);
+    //sacar imagen
+   $image = $_FILES['image']['tmp_name'];
+   $imgContent = addslashes(file_get_contents($image));
+   //sacar el tipo de imagen
+   $image_mime = getimagesize($image);
+   $image_mime = $image_mime['mime'];
+
+   include '../php/conn.php';
+
+//Comprobar que la receta no sea repetida
+
+
+$sth = $conn->query("SELECT name FROM recipe Where name like '$nombreRecetaForm' ");
+
+if ($sth->rowCount() > 0) {
+        $msjClase = 'danger';
+        $msjIcon  = 'warning';
+        $msjTxt   = '<br>Receta<br>repetida';
+    } else {
+        $sth = $conn->query("INSERT into recipe  (name, numbstep, indication, calories, type, difficulty, author, img, imgtype)
+         VALUES 
+         ('$nombreRecetaForm ','$numeroSelects', '$PasosRecetaForm ', '$caloriasRecetaForm ', '$TipoRecetaForm ', '$TipoDificultadForm ', '$TipoutorFrom ', '$imgContent', '$image_mime' ) ");
+
+        //Saca el ultimo ID insertado de la receta
+        $sth =  $conn->query("SELECT @@identity AS id from recipe");
+        while ($rows = $sth->fetch(PDO::FETCH_ASSOC)) {
+            $idReceta = $rows['id'];
+        }
+
+        //insertar ingredientes
+        //sacar numeros de select que van a ser los ingredientes
+        for ($i=1; $i <= $numeroSelects ; $i++) {
+            //saca el valor de los ingredientes
+            $valorIngrediente = $_POST['select'.$i];
+            $sth =  $conn->query("INSERT INTO  recipe_ingredients  (id_recipe, id_ingredient) VALUES ('$idReceta','$valorIngrediente')");
+                                  
+        }
+        
+
+     
+    }
+
+
+
+
+
+//update image $insert = $conn->query("Update recipe  set img ='$imgContent', imgtype = '$image_mime' WHERE id = '$id' ");
+   
+   //header("location: ../../index.php"); 
+    
+}
+
 //Agrega un ingrediente a la base de datos 
 if(isset($_POST['agregaringrediente'])){
     include 'conn.php';

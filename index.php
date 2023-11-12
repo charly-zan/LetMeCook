@@ -9,6 +9,8 @@ $ingedientes ="";
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <link rel="icon" href="/letmecook/src/img/cook_logo.ico" type="image/x-icon">
+
     <!-- Boostratp 4-->
     <link rel="stylesheet" href="/letmecook/libs/bootstrap-4.6.1/css/bootstrap.min.css">
     <!--Fonotawesom-->
@@ -101,71 +103,84 @@ $ingedientes ="";
 
                         <div class="uk-modal-body" uk-overflow-auto>
                             <div class="container">
-                                <div class="row text-center align-items-center">
-                                    <div class="col-6 p-3">
-                                        <label for="numeroSelects">¿Cuantos ingredientes contiene?:</label>
-                                        <input type="number" id="numeroSelects" min="1" max="20" step="1" value="1"
-                                            onchange="generarSelects()">
+                                <form action="./src/php/action.php" method="post" enctype="multipart/form-data">
+                                    <div class="row text-center align-items-center">
+                                        <div class="col-6 p-3">
+                                            <label for="numeroSelects">¿Cuantos ingredientes contiene?:</label>
+                                            <input type="number" id="numeroSelects" name="numeroSelects" min="1"
+                                                title="Ingredientes que contiene tu receta" max="20" step="1" value="1"
+                                                onchange="generarSelects()">
 
-                                    </div>
-                                    <div class="col-6 p-2" id="contenedorSelects">
-                                        <!-- Aquí se generarán los selects -->
-                                    </div>
-                                    <div class="col-6 p-3">
-                                        <label for="nombreRecetaForm">Nombre de la receta:</label>
-                                        <input type="text" id="nombreRecetaForm">
-                                    </div>
-                                    <div class="col-6 p-3">
-                                        <label for="caloriasRecetaForm">Calorias:</label>
-                                        <input type="number" id="caloriasRecetaForm">
-                                    </div>
-                                    <div class="col-6 p-3">
-                                        <label for="TipoRecetaForm">Tipo:</label>
+                                        </div>
+                                        <div class="col-6 p-2" name="contenedorSelects" id="contenedorSelects">
+                                            <!-- Aquí se generarán los selects -->
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="nombreRecetaForm">Nombre de la receta:</label>
+                                            <input type="text" name="nombreRecetaForm" id="nombreRecetaForm"
+                                                title="Ingresa solo LETRAS" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" required>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="caloriasRecetaForm">Calorias:</label>
+                                            <input type="number" name="caloriasRecetaForm" id="caloriasRecetaForm"
+                                                title="Calorias que contiene tu receta" required>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="TipoRecetaForm">Tipo:</label>
 
-                                        <select name="TipoRecetaForm" id="TipoRecetaForm">
-                                            <option value="Vegana">Vegana</option>
-                                            <option value="Bebida">Bebida</option>
-                                            <option value="Desayuno">Desayuno</option>
-                                            <option value="Ensalada">Ensalada</option>
-                                            <option value="Postre">Postre</option>
-                                            <option value="Pan">Pan</option>
-                                            <option value="Principal">Principal</option>
+                                            <select name="TipoRecetaForm" id="TipoRecetaForm" title="Tipo de receta">
+                                                <option value="Vegana">Vegana</option>
+                                                <option value="Bebida">Bebida</option>
+                                                <option value="Desayuno">Desayuno</option>
+                                                <option value="Ensalada">Ensalada</option>
+                                                <option value="Postre">Postre</option>
+                                                <option value="Pan">Pan</option>
+                                                <option value="PlatoFuerte">Plato Fuerte</option>
 
-                                        </select>
+                                            </select>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="TipoDificultadForm">Dificultad:</label>
+                                            <input type="number" id="TipoDificultadForm" name="TipoDificultadForm"
+                                                title="Dificultad de tu receta" min="1" max="5" step="1" value="1">
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="TipoAutorForm">Autor:</label>
+                                            <input type="text" name="TipoAutorForm" id="TipoAutorForm"
+                                                title="Ingresa el nombre sin numeros" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
+                                                required>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="image">Imagen:</label>
+                                            <input type="file" accept="image/*" id="image" name="image"
+                                                title="Selecciona la imagen de tu receta" required />
+                                        </div>
+                                        <div class="col">
+                                            <label for="PasosRecetaForm">Ingrese los pasos de la receta</label>
+                                            <textarea name="PasosRecetaForm" id="PasosRecetaForm" cols="50" rows="30"
+                                                title="Ingresa los pasos de tu receta" required></textarea>
+                                        </div>
                                     </div>
-                                    <div class="col-6 p-3">
-                                        <label for="TipoDificultadForm">Dificultad:</label>
-                                        <input type="number" id="TipoDificultadForm" min="1" max="5" step="1" value="1">
-                                    </div>
-                                    <div class="col-6 p-3">
-                                        <label for="TipoAutorForm">Autor:</label>
-                                        <input type="text" id="TipoAutorForm">
-                                    </div>
-                                    <div class="col-6 p-3">
-                                        <label for="TipoImagenForm">Imagen:</label>
-                                        <input type="file" accept="image/*" id="TipoImagenForm" name="image" />
-                                    </div>
-                                    <div class="col">
-                                        <label for="TipoRecetaFrom">Ingrese los pasos de la receta</label>
-                                        <textarea name="TipoRecetaFrom" id="TipoRecetaFrom" cols="50"
-                                            rows="30"></textarea>
-                                    </div>
-                                </div>
+
                             </div>
                         </div>
 
                         <div class="uk-modal-footer uk-text-right">
                             <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
-                            <button class="uk-button uk-button-primary" type="button"
-                                id="enviarDatosForm">Guardar</button>
+                            <button class="uk-button uk-button-primary" type="submit" id="enviarDatosForm"
+                                name="enviarDatosForm">Guardar</button>
                         </div>
+                        </form>
 
                     </div>
                 </div>
                 <!-- END MODAL -->
                 <li class="nav-item">
-                    <img style="height: 35px;" class="img-fluid uk-animation-slide-right"
-                        src="/letmecook/src/img/drikfood.svg" alt="drikfood">
+                    <a href="https://pruebasaversifunciona.onrender.com/" target="_blank">
+
+                        <img style="height: 35px;" class="img-fluid uk-animation-slide-right"
+                            src="/letmecook/src/img/drikfood.svg" alt="drikfood">
+                    </a>
                 </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
@@ -186,7 +201,8 @@ $ingedientes ="";
                     <h1 class="display-4 font-weight-bold">¡Déjame cocinar <br>para ti !</h1>
                     <p class="lead">Crea impresionantes Recetas de manera Fácil</p>
                     <hr>
-                    <p>Crea recetas en cuestión de minutos, tan solo ingresa la cantidad de ingredientes que tienes y te
+                    <p>Crea recetas en cuestión de minutos, tan solo ingresa los ingredientes que tienes a la mano
+                        separados por comas y te
                         recomendaremos recetas</p>
 
                 </div>
@@ -201,7 +217,7 @@ $ingedientes ="";
     </div>
     <!--End Jumbotron-->
 
-    <!--Second nav-->
+    <!--Second nav 
     <ul class="nav justify-content-center">
         <li class="nav-item">
             <p class="font-weight-bold">¿Qué se te antoja preparar?</p>
@@ -215,7 +231,7 @@ $ingedientes ="";
                     class="img-fluid" src="/letmecook/src/img/glass.svg" alt="lupa"></button>
         </li>
     </ul>
-    <!--End second var-->
+    End second var-->
     <hr>
     <!--Container -->
     <div class="container  mt-4" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 100; repeat: true">
@@ -226,11 +242,11 @@ $ingedientes ="";
                 <h2 class="display-4 uk-card">¿Quién es LetMeCook?</h2>
                 <br>
                 <p class=" text-muted uk-card">LetMeCook es una plataforma de creación de alimentos saludables,
-                    no saludables e incluso veganos , con tan solo ingresar la cantidad
-                    de ingredientes que tienes nuestra plataforma te recomendará el tipo
+                    no saludables e incluso veganos , con tan solo ingresar los ingredientes que tienes, nuestra
+                    plataforma te recomendará el tipo
                     de alimento que se puede preparar con los mismos.</p>
                 <br>
-                <p class=" text-muted uk-card">La preparación será sencilla con la sinplificación de pasos que tiene
+                <p class=" text-muted uk-card">La preparación será sencilla con la simplificación de pasos que tiene
                     nuestro recetario, cuidamos tu economía, salud y bienestar</p>
             </div>
             <div class=" col-6 uk-card">
@@ -238,7 +254,7 @@ $ingedientes ="";
                 <br>
                 <p class=" text-muted uk-card">El uso de nuestra plataforma será de gran utilidad para cualquier persona
                     que quiere cocinar x receta o que quiere cocinar algo con los mínimos de
-                    ingredientes disponibles en su casa.</p>
+                    ingredientes disponibles en su casa, para así evitar el uso de Plataforma de comida rápida.</p>
                 <br>
                 <p class=" text-muted uk-card">Con nuestra app cocinar será como ponerte los zapatos, será sencillo y
                     divertido.</p>
@@ -274,7 +290,7 @@ $ingedientes ="";
             <div class="col-4 uk-animation-slide-right">
                 <img class="img-fluid" style="height: 35px;" src="/letmecook/src/img/salad.svg" alt="salad">
                 <h4 class="font-weight-bold">Delicioso</h4>
-                <p class="text-muted">Recetas Proporcionadas por <br> Chefs y personas expertas</p>
+                <p class="text-muted">Recetas Proporcionadas por <br> la comunidad y personas expertas</p>
             </div>
         </div>
     </div>
@@ -284,22 +300,23 @@ $ingedientes ="";
 
     <!--Container 3-->
     <div class="container mt-4">
-        <div class="row">
-            <div class="col-6">
-                <h3 class="font-weight-bold">Acerca de</h3>
-                <p class="font-weight-bold text-muted font-italic">LetMeCook </p>
-                <p class="text-muted">Idea generada en un pequeño cubículo de la universidad de guadalajara
-                    con la finalidad de poder cocinar sin saber hacerlo y al mismo modo
-                    crear recetas saludables con elementos que tenemos a la mano.</p>
-            </div>
-            <div class="col-6   text-center">
-                <img style="height: 65%;" class="img-fluid mb-2" src="/letmecook/src/img/cook_logo.png" alt="chef">
-                <br>
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/inta.svg" alt="inta"></a></i>
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/facebook.svg" alt="facebook"></a></i>
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/twitter.svg" alt="twitter"></a></i>
-            </div>
+        <div class="row " ">
+            <div class=" col-6">
+            <h3 class="font-weight-bold">Acerca de</h3>
+            <p class="font-weight-bold text-muted font-italic">LetMeCook </p>
+            <p class="text-muted">Idea generada en un pequeño cubículo de la universidad de guadalajara
+                con la finalidad de poder cocinar sin saber hacerlo y al mismo modo
+                crear recetas saludables con elementos que tenemos a la mano.</p>
         </div>
+        <div class="col-6   text-center">
+            <img style="height: 65%;" class="img-fluid mb-2 " uk-scrollspy="cls: uk-animation-kenburns; repeat: true"
+                src=" /letmecook/src/img/cook_logo.png" alt="chef">
+            <br>
+            <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/inta.svg" alt="inta"></a></i>
+            <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/facebook.svg" alt="facebook"></a></i>
+            <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/twitter.svg" alt="twitter"></a></i>
+        </div>
+    </div>
     </div>
     <hr>
     <!--End container 3-->
@@ -346,7 +363,7 @@ $ingedientes ="";
                     <p class="text-muted">Ingresa los ingredientes que tienes y te recomendaremos recetas:</p>
 
                     <form>
-                        <input class="form-control form-control-lg  " type="text" id="ingredientes"
+                        <input class="form-control form-control-lg  " type="text" id="ingredientesalamano"
                             placeholder="Ingresa tus ingredientes separados por comas">
                         <button class="btn btn-dark btn- md font-weight-bold m-2 " type="button" id="buscar">Buscar
                             recetas</button>
@@ -423,7 +440,8 @@ $ingedientes ="";
 
 //busca las recetas en la base de datos segun los ingredientes
 $("#buscar").click(function() {
-    var ingredientes = $("#ingredientes").val();
+    var ingredientes = $("#ingredientesalamano").val();
+
 
     $.ajax({
             method: "POST",
@@ -448,31 +466,7 @@ $("#buscar").click(function() {
 });
 
 
-// MODIFICAR DATOS EDITAAAAAAAAAAAAAAAAAAAAAAAAR
-$("#enviarDatosForm").click(function() {
-    var numeroSelects = $("#numeroSelects").val();
 
-    $.ajax({
-            method: "POST",
-            url: "src/php/action.php",
-            data: {
-                enviardatosform: 1
-            }
-        })
-        .done(function(response) {
-            console.log(response);
-            datos = JSON.parse(response);
-            UIkit.notification.closeAll();
-
-            if (datos.estatus == 1) {
-                //UIkit.notification(datos.msj);
-
-
-
-            }
-
-        });
-});
 
 $("#ingredientes").click(function() {
 
@@ -604,7 +598,8 @@ function generarSelects() {
                     select.classList.add("m-2");
                     select.classList.add("col-5");
 
-                    select.id = "select" + i; // Asignar un ID único
+                    select.id = "select" + i;
+                    select.name = "select" + i; // Asignar un ID único
                     /*select.innerHTML = `       MODIFICAAAAAAAAAAAAAAAR
                                 <option  value="opcion1">Opción 1</option>
                                 <option  value="opcion2">Opción 2</option>

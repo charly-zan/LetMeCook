@@ -24,7 +24,12 @@ $(".kardex").click(function () {
     }
   });
 });
+
+//mandar datos por parametro en php header
+//header('location: index.php?rand='.rand(1,99999).'&seccion=almacen&subseccion=entradasresumen&id='.$grupoid);
+
 /////////////RECUPERA EL ULTIMO ID DE LA BASE DE DATOS//////////////////////////////////////////
+
 $rs = mysql_query("SELECT @@identity AS id");
 if (($row = mysql_fetch_row($rs))) {
   $id = trim($row[0]);

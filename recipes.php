@@ -15,6 +15,7 @@ $data = '';
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/letmecook/src/img/cook_logo.ico" type="image/x-icon">
     <!-- Boostratp 4-->
     <link rel="stylesheet" href="/letmecook/libs/bootstrap-4.6.1/css/bootstrap.min.css">
     <!-- UIkit CSS -->
@@ -40,7 +41,7 @@ $data = '';
     <!--Navbar-->
     <nav
         class="navbar navbar-light navbar-expand-md bg-light justify-content-md-center justify-content-start fixed-top">
-        <a class="navbar-brand d-md-none d-inline" href="">Vamos a cocinar!</a>
+        <a class="navbar-brand d-md-none d-inline" href="">¡Vamos a cocinar!</a>
         <button class="navbar-toggler ml-1" type="button" data-toggle="collapse" data-target="#collapsingNavbar2">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -48,110 +49,154 @@ $data = '';
         <div class="navbar-collapse collapse justify-content-between align-items-center w-100" id="collapsingNavbar2">
             <ul class="navbar-nav mx-auto text-md-center text-left">
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Food</a>
+                    <img style="height: 35px;" class="img-fluid uk-animation-slide-left"
+                        src="/letmecook/src/img/pizzahut.svg" alt="pizza">
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Food</a>
-                </li>
-                <li class="nav-item my-auto">
-                    <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
-                        href="/letmecook/index.php">Vamos a cocinar!</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#modal-overflow" uk-toggle>Agregar</a>
+                    <a class="nav-link " href="#modal-ingredientes" id="ingredientes" uk-toggle>Ingredientes</a>
                 </li>
                 <!-- MODAL -->
-                <div id="modal-overflow" class="mt-5" uk-modal>
+                <div id="modal-ingredientes" class="mt-5" uk-modal>
                     <div class="uk-modal-dialog">
 
                         <button class="uk-modal-close-default" type="button" uk-close></button>
 
-                        <div class="uk-modal-header mt-3"><strong>Ingrese un nuevo platillo</strong>
+                        <div class="uk-modal-header mt-3 text-center align-items-center"><strong>Total de ingredientes
+                                en la base de datos</strong>
+                            <div class="row">
+                                <div class="col-6 mt-4">
+                                    <h3>Ingredientes con recetas</h3>
+                                </div>
+                                <div class="col-6 mt-4">
+                                    <h3>Ingredientes</h3>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="uk-modal-body" uk-overflow-auto>
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-6" id="listaIngredientesreceta">
+                                    </div>
+                                    <div class="col-6" id="listaIngredientes">
+                                    </div>
+                                </div>
+                                <div class="row">
+
+                                    <label for="AgregarIngrediente">Agregar nuevo ingrediente: </label>
+                                    <input type="text" class="ml-2 mr-2 col-4" id="AgregarIngrediente"
+                                        pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+">
+                                    <button type="button" id="AgregarIngredienteBoton"
+                                        class="uk-button uk-button-primary col-3">Agregar</button>
+
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- END MODAL -->
+
+                <li class="nav-item my-auto">
+                    <a class="nav-link navbar-brand mx-0 d-none font-weight-bold d-md-inline"
+                        href="/letmecook/index.php">¡Vamos a cocinar!</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#modal-agregar" uk-toggle>Agregar</a>
+                </li>
+                <!-- MODAL -->
+                <div id="modal-agregar" class="mt-5" uk-modal>
+                    <div class="uk-modal-dialog">
+
+                        <button class="uk-modal-close-default" type="button" uk-close></button>
+
+                        <div class="uk-modal-header mt-3 text-center align-items-center"><strong>Ingrese una nueva
+                                receta</strong>
                             <h2 class="uk-modal-title"></h2>
                         </div>
 
                         <div class="uk-modal-body" uk-overflow-auto>
+                            <div class="container">
+                                <form action="./src/php/action.php" method="post" enctype="multipart/form-data">
+                                    <div class="row text-center align-items-center">
+                                        <div class="col-6 p-3">
+                                            <label for="numeroSelects">¿Cuantos ingredientes contiene?:</label>
+                                            <input type="number" id="numeroSelects" name="numeroSelects" min="1"
+                                                title="Ingredientes que contiene tu receta" max="20" step="1" value="1"
+                                                onchange="generarSelects()">
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
+                                        </div>
+                                        <div class="col-6 p-2" name="contenedorSelects" id="contenedorSelects">
+                                            <!-- Aquí se generarán los selects -->
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="nombreRecetaForm">Nombre de la receta:</label>
+                                            <input type="text" name="nombreRecetaForm" id="nombreRecetaForm"
+                                                title="Ingresa solo LETRAS" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+" required>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="caloriasRecetaForm">Calorias:</label>
+                                            <input type="number" name="caloriasRecetaForm" id="caloriasRecetaForm"
+                                                title="Calorias que contiene tu receta" required>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="TipoRecetaForm">Tipo:</label>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
+                                            <select name="TipoRecetaForm" id="TipoRecetaForm" title="Tipo de receta">
+                                                <option value="Vegana">Vegana</option>
+                                                <option value="Bebida">Bebida</option>
+                                                <option value="Desayuno">Desayuno</option>
+                                                <option value="Ensalada">Ensalada</option>
+                                                <option value="Postre">Postre</option>
+                                                <option value="Pan">Pan</option>
+                                                <option value="PlatoFuerte">Plato Fuerte</option>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
+                                            </select>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="TipoDificultadForm">Dificultad:</label>
+                                            <input type="number" id="TipoDificultadForm" name="TipoDificultadForm"
+                                                title="Dificultad de tu receta" min="1" max="5" step="1" value="1">
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="TipoAutorForm">Autor:</label>
+                                            <input type="text" name="TipoAutorForm" id="TipoAutorForm"
+                                                title="Ingresa el nombre sin numeros" pattern="[A-Za-záéíóúÁÉÍÓÚñÑ\s]+"
+                                                required>
+                                        </div>
+                                        <div class="col-6 p-3">
+                                            <label for="image">Imagen:</label>
+                                            <input type="file" accept="image/*" id="image" name="image"
+                                                title="Selecciona la imagen de tu receta" required />
+                                        </div>
+                                        <div class="col">
+                                            <label for="PasosRecetaForm">Ingrese los pasos de la receta</label>
+                                            <textarea name="PasosRecetaForm" id="PasosRecetaForm" cols="50" rows="30"
+                                                title="Ingresa los pasos de tu receta" required></textarea>
+                                        </div>
+                                    </div>
 
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
-                            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                                ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-                                ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
-                                reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-                                sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum.</p>
-
+                            </div>
                         </div>
 
                         <div class="uk-modal-footer uk-text-right">
-                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancel</button>
-                            <button class="uk-button uk-button-primary" type="button">Save</button>
+                            <button class="uk-button uk-button-default uk-modal-close" type="button">Cancelar</button>
+                            <button class="uk-button uk-button-primary" type="submit" id="enviarDatosForm"
+                                name="enviarDatosForm">Guardar</button>
                         </div>
+                        </form>
 
                     </div>
                 </div>
                 <!-- END MODAL -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Food</a>
+                    <img style="height: 35px;" class="img-fluid uk-animation-slide-right"
+                        src="/letmecook/src/img/drikfood.svg" alt="drikfood">
                 </li>
             </ul>
             <ul class="nav navbar-nav flex-row justify-content-md-center justify-content-start flex-nowrap">
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/facebook.svg" alt="facebook"></a></i>
-                <i><a href="#"><img style="height: 35px;" src="/letmecook/src/img/twitter.svg" alt="twitter"></a></i>
+                <i><a href="#"><img style="height: 35px;" src="./src/img/facebook.svg" alt="facebook"></a></i>
+                <i><a href="#"><img style="height: 35px;" src="./src/img/twitter.svg" alt="twitter"></a></i>
             </ul>
         </div>
     </nav>
@@ -201,8 +246,9 @@ $data = '';
         </div>';
 
             foreach ($ingredientesProporcionados as $ingr => $ingri)
-                $uno .= $ingri . ','
+                $uno .= $ingri . ' ,'
                 ;
+            $uno = substr($uno, 0, strlen($uno) - 1);
             print($uno) . '
     </div>
     <!--End Container 2-->
@@ -211,12 +257,18 @@ $data = '';
         <div class="row pb-4">
             <div class="d-flex col-12">
                 <h2 class="pr-2">Categorías: </h2>
-                <p class="text-warning font-weight-bold pt-3">Comida chatarra
-                <p class="text-warning font-weight-bold pt-3">(2)</p>
-                <br>
-                <p class="text-success font-weight-bold pt-3">Comida chatarra
-                <p class="text-warning font-weight-bold pt-3">(2)</p>
-                </p>
+                    <p class="Vegana font-weight-bold p-3">Vegana
+                    <br>
+                    <p class="Bebida font-weight-bold p-3">Bebidas
+                    <br>
+                    <p class="Desayuno font-weight-bold p-3">Desayunos
+                    <p class="Ensalada font-weight-bold p-3">Ensaladas
+                    <br>
+                    <p class="Postre font-weight-bold p-3">Postres
+                    <p class="Pan font-weight-bold p-3">Pan
+                    <br>
+                    <p class="PlatoFuerte font-weight-bold p-3">Plato Fuerte
+                    </p>
             </div>
 
     <div class="container pt-5">
@@ -234,9 +286,9 @@ $data = '';
                     <a href="/letmecook/preparation.php?idReceta='.$id.'">
                         <div class="row p-3">
                             <div class="col-8">
-                                <h2 class="font-italic">' . $nombre . '</h2>
+                                <h2 class="font-italic ' . $tipo . '">' . $nombre . '</h2>
                                     <div class="d-flex">
-                                        <p class="font-weight-bold text-success pr-2">ingredientes: </p>
+                                        <p class="font-weight-bold ' . $tipo . ' pr-2">ingredientes: </p>
                                         <p>';
                                             $sth2 = $conn->query("SELECT i.name from ingredients as i
                                                                         INNER  JOIN recipe_ingredients rein on rein.id_recipe =  '$id'
@@ -249,7 +301,7 @@ $data = '';
                                         </p>
                                     </div>
                                     <div class="d-flex">
-                                        <p class=" font-weight-bold text-success pr-2">ingredientes Faltantes:</p>';
+                                        <p class=" font-weight-bold ' . $tipo . ' pr-2">ingredientes Faltantes:</p>';
                                             // Convierte la cadena en un array, separando por comas y eliminando espacios adicionales
                                             $cadenaDosArray = array_map('trim', explode(',', $cadenaSinComa));
                                             // Encuentra la diferencia entre los dos arrays
@@ -257,8 +309,10 @@ $data = '';
                                             // Convierte el resultado en un array asociativo para una mejor visualización
                                             $diferencia = array_values($diferencia);
                                             foreach ($diferencia as $ingr => $ingri)
-                                                $dos .= $ingri . ','
+                                                $dos .= $ingri . ' ,'
+                                            
                                                 ;
+                                            $dos = substr($dos, 0, strlen($dos) - 1);
                                             print($dos) .
                                     '</div>
                             </div>
@@ -585,3 +639,152 @@ $data = '';
 </html>
 
 <script src="./src/js/app.js"></script>
+<script>
+$("#ingredientes").click(function() {
+
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                recuperalistaingredientes: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+                $("#listaIngredientesreceta").html(datos.listaingredientesreceta);
+                $("#listaIngredientes").html(datos.listaIngredientes);
+
+
+
+            }
+
+        });
+});
+/////////////MODIFICAR
+$("#AgregarIngredienteBoton").click(function() {
+    var ingredientenuevo = $("#AgregarIngrediente").val();
+
+    if (!esCadenaValida(ingredientenuevo)) {
+        alert("El nombre solo debe contener letras.");
+        e.preventDefault(); // Evita que se envíe el formulario
+    } else {
+        $.ajax({
+                method: "POST",
+                url: "src/php/action.php",
+                data: {
+                    ingredientenuevo: ingredientenuevo,
+                    agregaringrediente: 1
+                }
+            })
+            .done(function(response) {
+                console.log(response);
+                datos = JSON.parse(response);
+                UIkit.notification.closeAll();
+
+                $("#AgregarIngrediente").val("");
+                mostrarDatosEnLista();
+                if (datos.estatus == 1) {
+                    UIkit.notification(datos.msj);
+                } else {
+                    UIkit.notification(datos.msj);
+                }
+
+            });
+
+
+    }
+
+
+
+
+});
+
+
+function esCadenaValida(valor) {
+    // Utilizamos una expresión regular para validar que solo haya letras (mayúsculas o minúsculas) y espacios
+    var patron = /^[A-Za-záéíóúÁÉÍÓÚñÑ\s]+$/;
+    return patron.test(valor);
+}
+
+function mostrarDatosEnLista() {
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                recuperalistaingredientes: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+                $("#listaIngredientesreceta").html(datos.listaingredientesreceta);
+                $("#listaIngredientes").html(datos.listaIngredientes);
+
+
+
+            }
+
+        });
+
+}
+
+
+
+function generarSelects() {
+    // Obtener el valor del input
+    var numero = parseInt(document.getElementById("numeroSelects").value);
+
+    // Obtener el contenedor de selects
+    var contenedor = document.getElementById("contenedorSelects");
+
+
+    // Limpiar cualquier select existente en el contenedor
+    contenedor.innerHTML = "";
+
+    $.ajax({
+            method: "POST",
+            url: "src/php/action.php",
+            data: {
+                seleccionarIngredientes: 1
+            }
+        })
+        .done(function(response) {
+            console.log(response);
+            datos = JSON.parse(response);
+            UIkit.notification.closeAll();
+
+            if (datos.estatus == 1) {
+                //UIkit.notification(datos.msj);
+                // Generar los selects con IDs únicos
+                for (var i = 1; i <= numero; i++) {
+                    var select = document.createElement("select");
+                    select.classList.add("m-2");
+                    select.classList.add("col-5");
+
+                    select.id = "select" + i;
+                    select.name = "select" + i; // Asignar un ID único
+                    /*select.innerHTML = `       MODIFICAAAAAAAAAAAAAAAR
+                                <option  value="opcion1">Opción 1</option>
+                                <option  value="opcion2">Opción 2</option>
+                                <option  value="opcion3">Opción 3</option>
+                            `;
+                    */
+                    select.innerHTML = datos.opciones;
+                    contenedor.appendChild(select);
+                }
+            }
+
+        });
+
+
+}
+</script>
