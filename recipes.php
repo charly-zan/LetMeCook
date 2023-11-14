@@ -3,6 +3,9 @@ $ingredientesProporcionados = (isset($_GET['ing'])) ? $_GET['ing'] : "";
 $uno = '';
 $dos = '';
 $data = '';
+
+
+$todaslasrecetas = (isset($_GET['todaslasrecetas'])) ? $_GET['todaslasrecetas'] : 0;
 #link other page
 #<li><a href="index.php?rand='.rand(1,99999).'&seccion='.$seccion.'&subseccion=controlpedidos&id='.$id.'" class="color-red">Control De Pedidos '.$rowCONSULTA10['nombre'].'</a></li>
 ?>
@@ -207,7 +210,7 @@ $data = '';
 <body>
 
     <?php
-    if ($ingredientesProporcionados != "") {
+    if ($ingredientesProporcionados != "" ) {
         include './src/php/conn.php';
         // Ingredientes proporcionados
         //$ingredientesProporcionados = ["pollo", "queso", "tortilla de maiz"];
@@ -346,7 +349,92 @@ $data = '';
             <!--End Container 1-->';
         }
 
-    } else {
+    } else if($todaslasrecetas != 0 ) {
+        include './src/php/conn.php';
+
+        $sth = $conn->query("SELECT * from recipe");
+        if ($sth->rowCount() > 0) {
+            echo '
+            <!--Container 1-->
+            <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">
+                <div class="row  shadow-lg rounded">
+                    <div class="col-6 text-center pt-5">
+                        <h1 class="font-weight-bold"  id="textTitle"> Tenemos "' . $sth->rowCount() . ' " <br> Recetas!!
+                        </h1>
+                    </div>
+                    <div class="offset-2 col-4">
+                        <img id="imgTitle" class="img-fluid" src="/letmecook/src/img/Food.png" alt="Food">
+                    </div>
+                </div>
+            </div>
+        <!--End Container 1-->
+            <div class="row pb-4">
+                <div class="d-flex col-12">
+                    <h2 class="pr-2">Categorías: </h2>
+                        <p class="Vegana font-weight-bold p-3">Vegana
+                        <br>
+                        <p class="Bebida font-weight-bold p-3">Bebidas
+                        <br>
+                        <p class="Desayuno font-weight-bold p-3">Desayunos
+                        <p class="Ensalada font-weight-bold p-3">Ensaladas
+                        <br>
+                        <p class="Postre font-weight-bold p-3">Postres
+                        <p class="Pan font-weight-bold p-3">Pan
+                        <br>
+                        <p class="PlatoFuerte font-weight-bold p-3">Plato Fuerte
+                        </p>
+                </div>
+    
+        <div class="container pt-5">
+        <div class="row pb-5">';
+                while ($rows = $sth->fetch(PDO::FETCH_ASSOC)) {
+                    $nombre = $rows['name'];
+                    $tipo = $rows['type'];
+                    $imagen = $rows['img'];
+                    $id = $rows['id'];
+                    $imagentype = $rows['imgtype'];
+    
+                    #probAR  este segmento de codigo
+                    echo '
+                    <div class="col-6  p-2 uk-card-hover uk-card-body ">
+                        <a href="/letmecook/preparation.php?idReceta='.$id.'">
+                            <div class="row p-3">
+                                <div class="col-8">
+                                    <h2 class="font-italic ' . $tipo . '">' . $nombre . '</h2>
+                                        <div class="d-flex">
+                                            <p class="font-weight-bold ' . $tipo . ' pr-2">ingredientes: </p>
+                                            <p>';
+                                                $sth2 = $conn->query("SELECT i.name from ingredients as i
+                                                                            INNER  JOIN recipe_ingredients rein on rein.id_recipe =  '$id'
+                                                                            WHERE rein.id_ingredient = i.id");
+                                                while ($rows2 = $sth2->fetch(PDO::FETCH_ASSOC)) {
+                                                    $data .= $rows2['name'] . ' ,';
+                                                }
+                                                $cadenaSinComa = substr($data, 0, strlen($data) - 1);
+                                                echo ' ' . $cadenaSinComa . '
+                                            </p>
+                                        </div>
+                                </div>
+                                <div class="col-4">
+                                    <img class="img-fluid  pt-3 rounded-circle border" src="data:' . $imagentype . ';base64,' . base64_encode($imagen) . '" alt="">
+                                </div>
+                            </div>
+                        </a>
+                    </div>';
+                    $dos = '';
+                    $data = '';
+                '</div>';
+                }
+            '</div>
+            <div class="col-6 shadow p-2">        
+                     </div>';
+
+
+        }else{
+            //sin recetas
+        }
+        
+    }else{
         echo '
         <!--Container 1-->
             <div style="height: 350px; width: 70%;" class="container mt-5 pt-5">

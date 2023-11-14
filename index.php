@@ -217,21 +217,25 @@ $ingedientes ="";
     </div>
     <!--End Jumbotron-->
 
-    <!--Second nav 
-    <ul class="nav justify-content-center">
-        <li class="nav-item">
-            <p class="font-weight-bold">¿Qué se te antoja preparar?</p>
-        </li>
-        <li class="nav-item">
-            <input class="ml-2" type="text" placeholder="Ingresa el platillo">
-        </li>
-        <li class="nav-item">
+    <!--Second nav -->
+    <div class="container">
+        <div class="row justify-content-center lign-content-center">
+            <ul class="nav ">
+                <li class="nav-item">
+                    <h4 class="font-weight-bold">Ver todas las recetas </h4>
+                </li>
+            </ul>
+
+        </div>
+        <div class="row justify-content-center lign-content-center">
             <button type="button" class="align-content-center ml-3 btn btn-dark btn-sm"
-                onclick="location.href='/letmecook/recipes.php';"><strong>BUSCAR </strong> <img style="height: 35px;"
-                    class="img-fluid" src="/letmecook/src/img/glass.svg" alt="lupa"></button>
-        </li>
-    </ul>
-    End second var-->
+                onclick="location.href='/letmecook/recipes.php?todaslasrecetas=1'"><strong>BUSCAR </strong>
+                <img style=" height:
+                35px;" class="img-fluid" src="/letmecook/src/img/glass.svg" alt="lupa"></button>
+
+        </div>
+    </div>
+    <!--End second var-->
     <hr>
     <!--Container -->
     <div class="container  mt-4" uk-scrollspy="cls: uk-animation-fade; target: .uk-card; delay: 100; repeat: true">
